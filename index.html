@@ -84,7 +84,6 @@
         padding: 26px 0 6px;
       }
       header .wrap {
-        max-width: none;
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -108,7 +107,7 @@
         display: flex;
         align-items: center;
         gap: 40px;
-        padding: 40px 0 0;
+        padding-top: 40px;
         min-height: 480px;
       }
       .hero-copy {
@@ -561,49 +560,51 @@
         clip-path: polygon(0 0, 100% 0, 0 100%);
         margin-bottom: -1px;
       }
-      /* ---------- three bullets ---------- */
-      .bullets {
-        padding: 58px 0 30px;
+      /* ---------- hero feature list (mirrors the sign-in screen) ---------- */
+      .hero-features {
+        margin-top: 34px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
       }
-      .bullets .wrap {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 40px 34px;
+      .hf {
+        display: flex;
+        align-items: flex-start;
+        gap: 13px;
+        max-width: 440px;
+        text-align: left;
       }
-      .bullet {
-        text-align: center;
-      }
-      .b-icon {
-        width: 60px;
-        height: 60px;
-        border-radius: 30px;
+      .hf-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 21px;
         background: #fff;
         border: 1.5px solid var(--mint-deep);
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto 14px;
         color: var(--emerald);
-        box-shadow: 0 8px 18px rgba(3, 39, 72, 0.08);
+        box-shadow: 0 6px 14px rgba(3, 39, 72, 0.08);
+        flex-shrink: 0;
       }
-      .bullet h3 {
+      .hf h3 {
         font-family: var(--display);
-        font-size: 1.08rem;
+        font-size: 0.98rem;
         font-weight: 800;
         letter-spacing: -0.01em;
-        margin: 0 0 8px;
+        margin: 1px 0 3px;
         color: var(--ink);
       }
-      .bullet p {
-        margin: 0 auto;
-        font-size: 0.92rem;
+      .hf p {
+        margin: 0;
+        font-size: 0.86rem;
         color: var(--ink-2);
-        max-width: 300px;
       }
       /* ---------- quiet line ---------- */
       .quiet {
         text-align: center;
-        padding: 34px 0 72px;
+        padding-top: 34px;
+        padding-bottom: 72px;
       }
       .quiet p {
         font-family: var(--display);
@@ -690,6 +691,10 @@
         }
         .stores {
           justify-content: center;
+        }
+        .hf {
+          margin-left: auto;
+          margin-right: auto;
         }
         .hero-visual {
           flex: none;
@@ -778,6 +783,89 @@
             </span>
           </div>
           <p class="stores-note">Launching soon on iOS and Android · free.</p>
+
+          <div class="hero-features">
+            <div class="hf">
+              <div class="hf-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"
+                  />
+                  <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
+                </svg>
+              </div>
+              <div>
+                <h3>All assets, one place</h3>
+                <p>
+                  Track cash, stocks, crypto, property and more through a single, organized
+                  dashboard.
+                </p>
+              </div>
+            </div>
+            <div class="hf">
+              <div class="hf-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"
+                  />
+                  <path d="M20 3v4" />
+                  <path d="M22 5h-4" />
+                </svg>
+              </div>
+              <div>
+                <h3>Replace spreadsheets</h3>
+                <p>
+                  Skip manual formulas and scattered files. Keep your records clean, simple and
+                  always accessible.
+                </p>
+              </div>
+            </div>
+            <div class="hf">
+              <div class="hf-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                  <line x1="4" x2="4" y1="22" y2="15" />
+                </svg>
+              </div>
+              <div>
+                <h3>Built for Malaysians</h3>
+                <p>
+                  Designed around Malaysian wealth tracking, including local assets like EPF and
+                  unit trusts.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="hero-visual">
@@ -925,84 +1013,6 @@
     <div class="diagonal"></div>
 
     <main>
-      <section class="bullets">
-        <div class="wrap">
-          <div class="bullet">
-            <div class="b-icon">
-              <svg
-                width="26"
-                height="26"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path
-                  d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"
-                />
-                <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
-              </svg>
-            </div>
-            <h3>All assets, one place</h3>
-            <p>
-              Track cash, stocks, crypto, property and more through a single, organized dashboard.
-            </p>
-          </div>
-          <div class="bullet">
-            <div class="b-icon">
-              <svg
-                width="26"
-                height="26"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path
-                  d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"
-                />
-                <path d="M20 3v4" />
-                <path d="M22 5h-4" />
-              </svg>
-            </div>
-            <h3>Replace spreadsheets</h3>
-            <p>
-              Skip manual formulas and scattered files. Keep your records clean, simple and always
-              accessible.
-            </p>
-          </div>
-          <div class="bullet">
-            <div class="b-icon">
-              <svg
-                width="26"
-                height="26"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-                <line x1="4" x2="4" y1="22" y2="15" />
-              </svg>
-            </div>
-            <h3>Built for Malaysians</h3>
-            <p>
-              Designed around Malaysian wealth tracking, including local assets like EPF and unit
-              trusts.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <div class="quiet wrap">
         <p>Stay humble. <span>Track smarter.</span></p>
         <small>Private by design — no bank linking, no ads, no AI.</small>
