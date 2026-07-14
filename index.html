@@ -190,7 +190,7 @@
         padding: 9px;
         border: 1px solid rgba(3, 39, 72, 0.4);
         box-shadow: 0 42px 80px rgba(3, 39, 72, 0.32);
-        transform: rotate(-6deg) translateY(34px);
+        transform: translateY(34px);
         animation: heroPhone 1s ease both 0.15s;
         display: flex;
         position: relative;
@@ -199,22 +199,60 @@
       @keyframes heroPhone {
         from {
           opacity: 0;
-          transform: rotate(-6deg) translateY(70px);
+          transform: translateY(70px);
         }
         to {
           opacity: 1;
-          transform: rotate(-6deg) translateY(34px);
+          transform: translateY(34px);
         }
       }
       .screen {
         flex: 1;
-        display: flex;
-        flex-direction: column;
+        position: relative;
         min-height: 0;
         border-radius: 46px;
         background: #0a0a0a;
         overflow: hidden;
+      }
+      .app-screen {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
         padding: 12px 16px 14px;
+      }
+      .scr-view-a {
+        animation: showA 12s ease-in-out infinite;
+      }
+      .scr-view-b {
+        opacity: 0;
+        animation: showB 12s ease-in-out infinite;
+      }
+      @keyframes showA {
+        0%,
+        42% {
+          opacity: 1;
+        }
+        50%,
+        92% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes showB {
+        0%,
+        42% {
+          opacity: 0;
+        }
+        50%,
+        92% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
       }
       .island {
         width: 84px;
@@ -248,29 +286,168 @@
       .scr-tabs span.on {
         background: #34d399;
       }
-      .tier-pill {
+      .dash-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+      .book-pill {
         display: inline-flex;
         align-items: center;
-        gap: 7px;
-        background: #141414;
-        border: 1px solid #232323;
+        gap: 5px;
+        font-size: 0.6rem;
+        font-weight: 700;
+        color: #e4e4e7;
+        background: #1a1a1a;
+        border: 1px solid #262626;
         border-radius: 99px;
-        padding: 5px 12px 5px 6px;
-        margin: 12px 0 2px;
-        align-self: flex-start;
+        padding: 4px 9px;
       }
-      .tier-pill img {
+      .mini-avatar {
         width: 22px;
         height: 22px;
+        border-radius: 11px;
+        background: linear-gradient(135deg, #10b981, #047857);
+        color: #032748;
+        font-size: 0.58rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-      .tier-pill b {
+      .total-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .myr-chip {
+        font-size: 0.52rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: #a1a1aa;
+        background: #1a1a1a;
+        border-radius: 99px;
+        padding: 3px 8px;
+      }
+      .range-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        margin: 6px 0 10px;
+      }
+      .range-tabs span {
+        font-size: 0.54rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        color: #71717a;
+        padding: 3px 8px;
+        border-radius: 99px;
+      }
+      .range-tabs span.on {
+        color: #0a0a0a;
+        background: #e4e4e7;
+      }
+      .tiles {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+      }
+      .tile {
+        background: #141414;
+        border: 1px solid #202020;
+        border-radius: 11px;
+        padding: 7px 9px;
+      }
+      .tile small {
+        display: block;
+        font-size: 0.46rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: #71717a;
+        margin-bottom: 2px;
+      }
+      .tile b {
         font-size: 0.66rem;
         font-weight: 700;
         color: #fafafa;
+        white-space: nowrap;
       }
-      .tier-pill small {
-        font-size: 0.6rem;
+      .assets-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 2px 0 8px;
+      }
+      .assets-head b {
+        font-size: 0.95rem;
+        font-weight: 800;
+        color: #fafafa;
+      }
+      .add-pill {
+        font-size: 0.56rem;
+        font-weight: 700;
+        color: #032748;
+        background: #34d399;
+        border-radius: 99px;
+        padding: 4px 9px;
+      }
+      .gauge-wrap {
+        position: relative;
+        margin: 2px 0 8px;
+      }
+      .gauge-wrap svg {
+        display: block;
+        width: 78%;
+        margin: 0 auto;
+        height: auto;
+      }
+      .gauge-center {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 2px;
+        text-align: center;
+      }
+      .gauge-center b {
+        display: block;
+        font-family: var(--display);
+        font-size: 0.82rem;
+        font-weight: 800;
+        color: #fafafa;
+      }
+      .gauge-center small {
+        font-size: 0.52rem;
         color: #71717a;
+      }
+      .cls-row {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 7px;
+      }
+      .cls-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+      }
+      .cls-name {
+        flex: 1;
+        font-size: 0.52rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: #a1a1aa;
+      }
+      .cls-val {
+        font-size: 0.56rem;
+        font-weight: 600;
+        color: #d4d4d8;
+        font-variant-numeric: tabular-nums;
+      }
+      .chev {
+        color: #52525b;
+        font-size: 0.7rem;
+        margin-left: 2px;
       }
       .scr-label {
         font-size: 0.58rem;
@@ -701,16 +878,16 @@
           align-self: center;
         }
         .phone {
-          transform: rotate(-4deg) translateY(26px);
+          transform: translateY(26px);
         }
         @keyframes heroPhone {
           from {
             opacity: 0;
-            transform: rotate(-4deg) translateY(60px);
+            transform: translateY(60px);
           }
           to {
             opacity: 1;
-            transform: rotate(-4deg) translateY(26px);
+            transform: translateY(26px);
           }
         }
       }
@@ -723,8 +900,13 @@
         }
         .ping,
         .halo,
-        .bubble {
+        .bubble,
+        .scr-view-b {
           display: none;
+        }
+        .scr-view-a {
+          animation: none;
+          opacity: 1;
         }
         .draw {
           stroke-dasharray: none;
@@ -749,7 +931,7 @@
         <div class="hero-copy">
           <h1>Every asset.<br />One quiet place.</h1>
           <p class="lead">
-            Track cash, EPF, investments, property and more—privately, in one beautifully simple
+            Track cash, EPF, investments, property and more — privately, in one beautifully simple
             app.
           </p>
           <div class="stores">
@@ -782,7 +964,7 @@
               Google Play
             </span>
           </div>
-          <p class="stores-note">Coming soon to iOS and Android · Free to download</p>
+          <p class="stores-note">Coming soon to iOS and Android</p>
 
           <div class="hero-features">
             <div class="hf">
@@ -893,113 +1075,234 @@
             <div
               class="screen"
               role="img"
-              aria-label="Humble Shark dashboard showing total assets of RM 348,210, the Reef Shark tier, an upward trend chart, and asset rows for EPF, cash and stocks"
+              aria-label="Humble Shark app cycling between the Dashboard — total assets RM 3,773,941, up 313 percent all time, trend chart and stat tiles — and the Assets screen with an allocation gauge and asset rows"
             >
-              <div class="island"></div>
-              <p class="scr-label">TOTAL ASSETS</p>
-              <p class="scr-total">RM 348,210</p>
-              <p class="scr-delta">▲ +1.2% this month</p>
-              <span class="tier-pill">
-                <img src="tiers/reef.png" alt="" />
-                <b>Reef Shark</b>
-                <small>· next RM 500K</small>
-              </span>
-              <div class="chart-wrap">
-                <svg class="scr-chart" viewBox="0 0 260 84" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#10b981" stop-opacity="0.28" />
-                      <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
-                    </linearGradient>
-                  </defs>
-                  <path
-                    d="M0 66 C22 62 34 58 52 57 C74 56 82 48 104 46 C126 44 138 50 156 44 C178 37 190 30 208 26 C226 22 244 16 260 12 L260 84 L0 84 Z"
-                    fill="url(#fill)"
-                  />
-                  <path
-                    class="draw"
-                    d="M0 66 C22 62 34 58 52 57 C74 56 82 48 104 46 C126 44 138 50 156 44 C178 37 190 30 208 26 C226 22 244 16 260 12"
-                    fill="none"
-                    stroke="#10b981"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                  />
-                  <circle cx="260" cy="12" r="3.2" fill="#34d399" />
-                  <circle class="ping" cx="260" cy="12" r="3.2" fill="#34d399" />
-                </svg>
-              </div>
-              <div class="arow">
-                <span class="adot">
-                  <svg
-                    width="13"
-                    height="13"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <line x1="3" x2="21" y1="22" y2="22" />
-                    <line x1="6" x2="6" y1="18" y2="11" />
-                    <line x1="10" x2="10" y1="18" y2="11" />
-                    <line x1="14" x2="14" y1="18" y2="11" />
-                    <line x1="18" x2="18" y1="18" y2="11" />
-                    <polygon points="12 2 20 7 4 7" />
+              <div class="app-screen scr-view-a">
+                <div class="island"></div>
+                <div class="dash-top">
+                  <span class="book-pill">
+                    <svg
+                      width="9"
+                      height="9"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#34d399"
+                      stroke-width="2.4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect width="18" height="11" x="3" y="11" rx="2" />
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                    Personal
+                    <svg
+                      width="8"
+                      height="8"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </span>
+                  <span class="mini-avatar">J</span>
+                </div>
+                <p class="scr-label">TOTAL ASSETS</p>
+                <div class="total-row">
+                  <p class="scr-total">RM 3,773,941</p>
+                  <span class="myr-chip">MYR</span>
+                </div>
+                <p class="scr-delta">↗ +313.0% · all time</p>
+                <div class="chart-wrap">
+                  <svg class="scr-chart" viewBox="0 0 260 96" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#10b981" stop-opacity="0.28" />
+                        <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M0 80 C15 74 28 64 45 58 C60 53 70 52 85 50 C95 49 100 52 110 54 C125 57 140 53 155 52 C165 51 175 45 190 30 C200 20 210 18 225 17 C240 16 252 15 260 13 L260 96 L0 96 Z"
+                      fill="url(#fill)"
+                    />
+                    <path
+                      class="draw"
+                      d="M0 80 C15 74 28 64 45 58 C60 53 70 52 85 50 C95 49 100 52 110 54 C125 57 140 53 155 52 C165 51 175 45 190 30 C200 20 210 18 225 17 C240 16 252 15 260 13"
+                      fill="none"
+                      stroke="#10b981"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                    />
+                    <circle cx="260" cy="13" r="3.2" fill="#34d399" />
+                    <circle class="ping" cx="260" cy="13" r="3.2" fill="#34d399" />
                   </svg>
-                </span>
-                <span class="aname">EPF</span>
-                <span class="aval">RM 146,200</span>
+                </div>
+                <div class="range-tabs">
+                  <span>1M</span><span>6M</span><span>1Y</span><span class="on">ALL</span>
+                </div>
+                <div class="tiles">
+                  <div class="tile"><small>ASSETS</small><b>12</b></div>
+                  <div class="tile"><small>#1 ASSET</small><b>Apple</b></div>
+                  <div class="tile"><small>CASH BUFFER</small><b>RM 287,720</b></div>
+                  <div class="tile"><small>CURRENCIES</small><b>4</b></div>
+                </div>
+                <div class="scr-tabs">
+                  <span class="on"></span><span></span><span></span><span></span><span></span>
+                </div>
               </div>
-              <div class="arow">
-                <span class="adot">
-                  <svg
-                    width="13"
-                    height="13"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <rect width="20" height="12" x="2" y="6" rx="2" />
-                    <circle cx="12" cy="12" r="2" />
-                    <path d="M6 12h.01M18 12h.01" />
+
+              <div class="app-screen scr-view-b">
+                <div class="island"></div>
+                <p class="scr-label">ASSETS</p>
+                <div class="assets-head">
+                  <b>Your Assets</b>
+                  <span class="add-pill">+ Add asset</span>
+                </div>
+                <div class="gauge-wrap">
+                  <svg viewBox="0 0 200 106" aria-hidden="true">
+                    <path
+                      d="M22 100 A78 78 0 0 1 63.4 31.1"
+                      fill="none"
+                      stroke="#3b82f6"
+                      stroke-width="17"
+                    />
+                    <path
+                      d="M67 29.3 A78 78 0 0 1 140.2 33.1"
+                      fill="none"
+                      stroke="#45c8a8"
+                      stroke-width="17"
+                    />
+                    <path
+                      d="M143.6 35.3 A78 78 0 0 1 158 47.8"
+                      fill="none"
+                      stroke="#eab308"
+                      stroke-width="17"
+                    />
+                    <path
+                      d="M160.6 50.9 A78 78 0 0 1 170.1 65.8"
+                      fill="none"
+                      stroke="#f97316"
+                      stroke-width="17"
+                    />
+                    <path
+                      d="M171.8 69.5 A78 78 0 0 1 173.8 74.6"
+                      fill="none"
+                      stroke="#8b5cf6"
+                      stroke-width="17"
+                    />
+                    <path
+                      d="M175 78.5 A78 78 0 0 1 176.3 83.8"
+                      fill="none"
+                      stroke="#ec4899"
+                      stroke-width="17"
+                    />
+                    <path
+                      d="M177 87.8 A78 78 0 0 1 178 100"
+                      fill="none"
+                      stroke="#38bdf8"
+                      stroke-width="17"
+                    />
                   </svg>
-                </span>
-                <span class="aname">Cash</span>
-                <span class="aval">RM 73,400</span>
-              </div>
-              <div class="arow">
-                <span class="adot">
-                  <svg
-                    width="13"
-                    height="13"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M9 5v4" />
-                    <rect width="4" height="6" x="7" y="9" rx="1" />
-                    <path d="M9 15v2" />
-                    <path d="M17 3v2" />
-                    <rect width="4" height="8" x="15" y="5" rx="1" />
-                    <path d="M17 13v3" />
-                    <path d="M3 3v16a2 2 0 0 0 2 2h16" />
-                  </svg>
-                </span>
-                <span class="aname">Stocks</span>
-                <span class="aval">RM 52,300</span>
-              </div>
-              <div class="scr-tabs">
-                <span class="on"></span><span></span><span></span><span></span><span></span>
+                  <div class="gauge-center">
+                    <b>RM 3,773,941</b>
+                    <small>12 assets · 8 classes</small>
+                  </div>
+                </div>
+                <div class="cls-row">
+                  <span class="cls-dot" style="background: #3b82f6"></span>
+                  <span class="cls-name">STOCKS · 37.0%</span>
+                  <span class="cls-val">RM 1,394,662</span>
+                </div>
+                <div class="arow">
+                  <span class="adot">
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M9 5v4" />
+                      <rect width="4" height="6" x="7" y="9" rx="1" />
+                      <path d="M9 15v2" />
+                      <path d="M17 3v2" />
+                      <rect width="4" height="8" x="15" y="5" rx="1" />
+                      <path d="M17 13v3" />
+                      <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+                    </svg>
+                  </span>
+                  <span class="aname">Apple</span>
+                  <span class="aval">RM 1,394,662</span>
+                  <span class="chev">›</span>
+                </div>
+                <div class="cls-row">
+                  <span class="cls-dot" style="background: #45c8a8"></span>
+                  <span class="cls-name">PROPERTY · 33.2%</span>
+                  <span class="cls-val">RM 1,254,059</span>
+                </div>
+                <div class="arow">
+                  <span class="adot">
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+                      <path
+                        d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span class="aname">Melbourne CBD</span>
+                  <span class="aval">RM 854,059</span>
+                  <span class="chev">›</span>
+                </div>
+                <div class="cls-row">
+                  <span class="cls-dot" style="background: #eab308"></span>
+                  <span class="cls-name">GOLD · 8.5%</span>
+                  <span class="cls-val">RM 320,000</span>
+                </div>
+                <div class="arow">
+                  <span class="adot">
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="8" cy="8" r="6" />
+                      <path d="M18.09 10.37A6 6 0 1 1 10.34 18" />
+                      <path d="M7 6h1v4" />
+                      <path d="m16.71 13.88.7.71-2.82 2.82" />
+                    </svg>
+                  </span>
+                  <span class="aname">Gold Bar</span>
+                  <span class="aval">RM 320,000</span>
+                  <span class="chev">›</span>
+                </div>
+                <div class="scr-tabs">
+                  <span></span><span class="on"></span><span></span><span></span><span></span>
+                </div>
               </div>
             </div>
           </div>
@@ -1019,7 +1322,7 @@
       <div class="wrap">
         <div class="foot-top">
           <div class="foot-brand"><img src="logo.png" alt="" /> Humble Shark</div>
-          <p class="foot-note">Coming soon to iOS and Android · Free to download</p>
+          <p class="foot-note">Coming soon to iOS and Android</p>
         </div>
         <div class="foot-links">
           <a href="privacy.html">Privacy Policy</a>
