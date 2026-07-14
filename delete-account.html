@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete your account — Humble Shark</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          var prefersDark =
+            window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (saved === 'dark' || (saved !== 'light' && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (_e) {
+          /* private mode */
+        }
+      })();
+    </script>
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #18181b;
+        --muted: #71717a;
+        --border: #e4e4e7;
+        --accent: #059669;
+      }
+      html.dark {
+        --bg: #0a0a0a;
+        --text: #fafafa;
+        --muted: #a1a1aa;
+        --border: rgba(255, 255, 255, 0.12);
+        --accent: #10b981;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          Roboto,
+          sans-serif;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      main {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+      a {
+        color: var(--accent);
+      }
+      h1 {
+        font-size: 1.75rem;
+        letter-spacing: -0.02em;
+        margin: 0 0 4px;
+      }
+      h2 {
+        font-size: 1.15rem;
+        letter-spacing: -0.01em;
+        margin: 2.2em 0 0.5em;
+      }
+      p,
+      li {
+        font-size: 0.95rem;
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin-bottom: 2.5em;
+      }
+      .back {
+        display: inline-block;
+        margin-bottom: 2em;
+        font-size: 0.85rem;
+        text-decoration: none;
+      }
+      ul,
+      ol {
+        padding-left: 1.2em;
+      }
+      footer {
+        margin-top: 4em;
+        padding-top: 1.5em;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="./">← Humble Shark</a>
+      <h1>Delete your account</h1>
+      <p class="meta">Humble Shark — account and data deletion</p>
+
+      <h2>Delete it yourself, in the app</h2>
+      <ol>
+        <li>Sign in to Humble Shark.</li>
+        <li>Open <strong>Settings</strong> (tap your profile picture).</li>
+        <li>Under <strong>Account</strong>, choose <strong>Delete account</strong> and confirm.</li>
+      </ol>
+      <p>Deletion is immediate — there is no waiting period and no way to undo it.</p>
+
+      <h2>Can't sign in?</h2>
+      <p>
+        Email <a href="mailto:jacob2lame@gmail.com">jacob2lame@gmail.com</a> from the email address
+        your account uses (that's how we verify it's you), with the subject "Delete my account". We
+        process requests within 30 days.
+      </p>
+
+      <h2>What gets deleted</h2>
+      <ul>
+        <li>Your sign-in record and profile (name, email, age).</li>
+        <li>Your personal book — every asset, transaction, and history snapshot.</li>
+        <li>
+          Every shared book you <em>own</em>, including its data — it disappears for all of its
+          members.
+        </li>
+        <li>Your membership in books other people own (their data stays theirs).</li>
+      </ul>
+      <p>
+        Data is removed from active systems immediately; residual copies in encrypted backups expire
+        within 30 days. Preferences stored only on your device (theme, stealth mode) stay on your
+        device until you clear them.
+      </p>
+
+      <footer>
+        Questions: <a href="mailto:jacob2lame@gmail.com">jacob2lame@gmail.com</a><br />
+        See also our <a href="privacy.html">Privacy Policy</a> and
+        <a href="terms.html">Terms of Use</a>.
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Use — Humble Shark</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          var prefersDark =
+            window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (saved === 'dark' || (saved !== 'light' && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (_e) {
+          /* private mode */
+        }
+      })();
+    </script>
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #18181b;
+        --muted: #71717a;
+        --border: #e4e4e7;
+        --accent: #059669;
+      }
+      html.dark {
+        --bg: #0a0a0a;
+        --text: #fafafa;
+        --muted: #a1a1aa;
+        --border: rgba(255, 255, 255, 0.12);
+        --accent: #10b981;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          Roboto,
+          sans-serif;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      main {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+      a {
+        color: var(--accent);
+      }
+      h1 {
+        font-size: 1.75rem;
+        letter-spacing: -0.02em;
+        margin: 0 0 4px;
+      }
+      h2 {
+        font-size: 1.15rem;
+        letter-spacing: -0.01em;
+        margin: 2.2em 0 0.5em;
+      }
+      p,
+      li {
+        font-size: 0.95rem;
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin-bottom: 2.5em;
+      }
+      .back {
+        display: inline-block;
+        margin-bottom: 2em;
+        font-size: 0.85rem;
+        text-decoration: none;
+      }
+      ul {
+        padding-left: 1.2em;
+      }
+      footer {
+        margin-top: 4em;
+        padding-top: 1.5em;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="./">← Humble Shark</a>
+      <h1>Terms of Use</h1>
+      <p class="meta">Effective 2 July 2026</p>
+
+      <p>
+        By using Humble Shark you agree to these terms. If you don't agree, please don't use the
+        app.
+      </p>
+
+      <h2>What Humble Shark is — and isn't</h2>
+      <p>
+        Humble Shark is a personal record-keeping tool for assets you enter yourself. It is
+        <strong> not financial, investment, tax, or retirement advice</strong>. Shark Insights, tier
+        milestones, EPF readiness indicators, and currency conversions are informational
+        calculations based on the numbers you provide and publicly available reference rates; they
+        may be inaccurate or out of date, and you should not make financial decisions based on them
+        alone.
+      </p>
+
+      <h2>Your account and your data</h2>
+      <ul>
+        <li>You sign in with a Google or Apple account and are responsible for securing it.</li>
+        <li>
+          The accuracy of what you track is up to you — the app stores what you type, and totals are
+          only as correct as your entries.
+        </li>
+        <li>
+          Shared-book invite links grant access to that book's data. You are responsible for who you
+          send them to.
+        </li>
+      </ul>
+
+      <h2>Acceptable use</h2>
+      <p>
+        Don't attempt to access other users' data, probe or disrupt the service, or use the app for
+        unlawful purposes. We may suspend accounts that do.
+      </p>
+
+      <h2>Availability and warranty</h2>
+      <p>
+        The service is provided "as is", without warranties of any kind. We work to keep it reliable
+        and your data safe, but we do not guarantee uninterrupted availability and are not liable
+        for indirect or consequential losses. To the maximum extent permitted by law, our total
+        liability for any claim is limited to the amount you paid to use the service (currently:
+        nothing).
+      </p>
+
+      <h2>Ending things</h2>
+      <p>
+        You can stop using Humble Shark at any time: erase your data or delete your account entirely
+        from Settings (see the <a href="delete-account.html">account deletion page</a>
+        for exactly what each covers). We may terminate or suspend access for breach of these terms.
+      </p>
+
+      <h2>Governing law</h2>
+      <p>These terms are governed by the laws of Malaysia.</p>
+
+      <h2>Changes</h2>
+      <p>
+        We may update these terms; the effective date above will change and material updates will be
+        announced in the app. Continuing to use the app after an update means you accept the revised
+        terms.
+      </p>
+
+      <footer>
+        Questions: <a href="mailto:jacob2lame@gmail.com">jacob2lame@gmail.com</a><br />
+        See also our <a href="privacy.html">Privacy Policy</a>.
+      </footer>
+    </main>
+  </body>
+</html>

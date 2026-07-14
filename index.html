@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Humble Shark — Support</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <script>
+      // Same theme bootstrap as the app: saved preference first, then OS.
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          var prefersDark =
+            window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (saved === 'dark' || (saved !== 'light' && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (_e) {
+          /* private mode */
+        }
+      })();
+    </script>
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #18181b;
+        --muted: #71717a;
+        --border: #e4e4e7;
+        --accent: #059669;
+      }
+      html.dark {
+        --bg: #0a0a0a;
+        --text: #fafafa;
+        --muted: #a1a1aa;
+        --border: rgba(255, 255, 255, 0.12);
+        --accent: #10b981;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          Roboto,
+          sans-serif;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      main {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+      a {
+        color: var(--accent);
+      }
+      h1 {
+        font-size: 1.75rem;
+        letter-spacing: -0.02em;
+        margin: 0 0 4px;
+      }
+      h2 {
+        font-size: 1.15rem;
+        letter-spacing: -0.01em;
+        margin: 2.2em 0 0.5em;
+      }
+      p,
+      li {
+        font-size: 0.95rem;
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin-bottom: 2.5em;
+      }
+      ul {
+        padding-left: 1.2em;
+      }
+      footer {
+        margin-top: 4em;
+        padding-top: 1.5em;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Humble Shark</h1>
+      <p class="meta">Private asset tracker for iOS and Android</p>
+
+      <p>
+        Humble Shark is a private asset tracker for Malaysian users. Track your cash, EPF, stocks,
+        crypto, property, and more — everything is entered by you, visible only to you (and people
+        you explicitly share a book with), with no bank linking and no ads.
+      </p>
+
+      <h2>Support</h2>
+      <p>
+        Questions, bug reports, or account requests:
+        <a href="mailto:jacob2lame@gmail.com">jacob2lame@gmail.com</a>. We aim to reply within a few
+        days.
+      </p>
+
+      <h2>Legal</h2>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Use</a></li>
+        <li><a href="delete-account.html">Delete your account</a></li>
+      </ul>
+
+      <footer>© 2026 Humble Shark. Stay humble. Track smarter.</footer>
+    </main>
+  </body>
+</html>
