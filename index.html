@@ -264,13 +264,8 @@
         width: 22px;
         height: 22px;
         border-radius: 11px;
-        background: linear-gradient(135deg, #10b981, #047857);
-        color: #032748;
-        font-size: 0.58rem;
-        font-weight: 800;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: block;
+        object-fit: cover;
       }
       .total-row {
         display: flex;
@@ -1069,7 +1064,7 @@
                         d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.737 7.326"
                       />
                     </svg>
-                    <span class="mini-avatar">J</span>
+                    <img class="mini-avatar" src="avatar.png" alt="" width="22" height="22" />
                   </span>
                 </div>
                 <p class="scr-label">
@@ -1305,11 +1300,19 @@
                     History
                   </span>
                   <span class="tb">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                      <path
-                        d="M3 20 C7 10 12 4.5 14.5 3 C15 9 17.5 15 21 20 Z"
-                        fill="currentColor"
-                      />
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 16c.5-6 3.5-10 8-12-.5 4 .6 8.4 5 12" />
+                      <path d="M2 20c1.7-1.2 3.3-1.2 5 0s3.3 1.2 5 0 3.3-1.2 5 0 3.3 1.2 5 0" />
                     </svg>
                     Progress
                   </span>
