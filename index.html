@@ -179,7 +179,7 @@
       }
       /* phone */
       .hero-visual {
-        flex: 0 0 350px;
+        flex: 0 0 372px;
         position: relative;
         align-self: flex-end;
         transform: translateX(-20px);
@@ -187,9 +187,9 @@
       }
       .chip-privacy {
         position: absolute;
-        left: -136px;
-        top: -6px;
-        max-width: 178px;
+        right: -30px;
+        top: -10px;
+        max-width: 152px;
         display: flex;
         align-items: center;
         gap: 9px;
@@ -222,15 +222,15 @@
         }
       }
       .phone {
-        width: 272px;
-        height: 560px;
+        width: 300px;
+        height: 600px;
         margin: 0 auto -58px;
-        border-radius: 54px;
+        border-radius: 56px;
         background: #050505;
         padding: 9px;
         border: 1px solid rgba(3, 39, 72, 0.4);
-        box-shadow: 0 42px 80px rgba(3, 39, 72, 0.32);
-        transform: rotate(-7deg);
+        box-shadow: 0 26px 52px rgba(3, 39, 72, 0.3);
+        transform: rotate(-5deg);
         animation: heroPhone 1s ease both 0.15s;
         display: flex;
         position: relative;
@@ -239,11 +239,11 @@
       @keyframes heroPhone {
         from {
           opacity: 0;
-          transform: translateY(40px) rotate(-7deg);
+          transform: translateY(40px) rotate(-5deg);
         }
         to {
           opacity: 1;
-          transform: rotate(-7deg);
+          transform: rotate(-5deg);
         }
       }
       .screen {
@@ -354,7 +354,7 @@
         background: #141414;
         border: 1px solid #202020;
         border-radius: 11px;
-        padding: 7px 8px;
+        padding: 8px 10px;
         min-width: 0;
       }
       .tile-icon {
@@ -373,41 +373,69 @@
       }
       .tile small {
         display: block;
-        font-size: 0.46rem;
+        font-size: 0.5rem;
         font-weight: 700;
         letter-spacing: 0.14em;
         color: #71717a;
         margin-bottom: 2px;
       }
       .tile b {
-        font-size: 0.66rem;
+        font-size: 0.72rem;
         font-weight: 700;
         color: #fafafa;
         white-space: nowrap;
       }
-      .apex-card {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+      .tier-card {
         background: #141414;
         border: 1px solid #202020;
         border-radius: 13px;
-        padding: 9px 12px;
+        padding: 10px 12px 11px;
         margin-top: 6px;
       }
-      .apex-card small {
+      .tier-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 9px;
+      }
+      .tier-top small {
         display: block;
-        font-size: 0.46rem;
+        font-size: 0.5rem;
         font-weight: 700;
         letter-spacing: 0.16em;
         color: #71717a;
-        margin-bottom: 2px;
+        margin-bottom: 3px;
       }
-      .apex-card b {
+      .tier-top b {
         font-family: var(--display);
-        font-size: 0.95rem;
+        font-size: 0.98rem;
         font-weight: 800;
         color: #fafafa;
+      }
+      .tier-bar {
+        height: 6px;
+        border-radius: 99px;
+        background: #262626;
+        overflow: hidden;
+        margin-bottom: 7px;
+      }
+      .tier-bar i {
+        display: block;
+        height: 100%;
+        border-radius: 99px;
+        background: linear-gradient(90deg, #10b981, #34d399);
+      }
+      .tier-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.62rem;
+        font-weight: 700;
+        color: #fafafa;
+      }
+      .tier-meta em {
+        font-style: normal;
+        color: #71717a;
       }
       .scr-tabbar {
         display: flex;
@@ -653,7 +681,7 @@
       /* ---------- quiet line ---------- */
       .quiet {
         text-align: center;
-        padding-top: 34px;
+        padding-top: 70px;
         padding-bottom: 72px;
       }
       .quiet p {
@@ -801,7 +829,7 @@
           <h1>Every asset.<br />One quiet place.</h1>
           <p class="lead">
             Track cash, EPF, investments, property and more —<br />
-            privately, in one simple, beautifully organised app.
+            privately, in one beautifully simple app.
           </p>
           <div class="stores">
             <span class="store-pill ios">
@@ -857,13 +885,13 @@
               <rect width="18" height="11" x="3" y="11" rx="2" />
               <path d="M7 11V7a5 5 0 0 1 10 0v4" />
             </svg>
-            <span>Private by design — no bank logins, ever.</span>
+            <span>Private by design. No bank linking.</span>
           </div>
           <div class="phone">
             <div
               class="screen"
               role="img"
-              aria-label="Humble Shark dashboard showing total assets of RM 3,773,941, up 313 percent all time, a trend chart, stat tiles and the Megalodon apex tier"
+              aria-label="Humble Shark dashboard showing total assets of RM 856,498, up 41.2 percent all time, a trend chart, stat tiles and the Bull Shark tier at 85.65 percent of the next goal"
             >
               <div class="app-screen">
                 <div class="island"></div>
@@ -936,7 +964,7 @@
                   </svg>
                 </p>
                 <div class="total-row">
-                  <p class="scr-total">RM 3,773,941</p>
+                  <p class="scr-total">RM 856,498</p>
                   <span class="myr-chip">
                     MYR
                     <svg
@@ -954,7 +982,7 @@
                     </svg>
                   </span>
                 </div>
-                <p class="scr-delta">↗ +313.0% · all time</p>
+                <p class="scr-delta">↗ +41.2% · all time</p>
                 <div class="chart-wrap">
                   <svg class="scr-chart" viewBox="0 0 260 96" aria-hidden="true">
                     <defs>
@@ -1026,7 +1054,7 @@
                         <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
                       </svg>
                     </span>
-                    <span><small>#1 ASSET</small><b>Apple</b></span>
+                    <span><small>#1 ASSET</small><b>M Bank</b></span>
                   </div>
                   <div class="tile">
                     <span class="tile-icon">
@@ -1046,7 +1074,7 @@
                         <path d="M6 12h.01M18 12h.01" />
                       </svg>
                     </span>
-                    <span><small>CASH BUFFER</small><b>RM 287,720</b></span>
+                    <span><small>CASH BUFFER</small><b>RM 387,720</b></span>
                   </div>
                   <div class="tile">
                     <span class="tile-icon">
@@ -1069,12 +1097,19 @@
                     <span><small>CURRENCIES</small><b>4</b></span>
                   </div>
                 </div>
-                <div class="apex-card">
-                  <span>
-                    <small>APEX TIER</small>
-                    <b>Megalodon</b>
-                  </span>
-                  <img src="tiers/megalodon.png" alt="" width="38" height="38" />
+                <div class="tier-card">
+                  <div class="tier-top">
+                    <span>
+                      <small>CURRENT TIER</small>
+                      <b>Bull Shark</b>
+                    </span>
+                    <img src="tiers/bull.png" alt="" width="40" height="40" />
+                  </div>
+                  <div class="tier-bar"><i style="width: 85.65%"></i></div>
+                  <div class="tier-meta">
+                    <span>RM 856,498 <em>/ 1,000,000</em></span>
+                    <b>85.65%</b>
+                  </div>
                 </div>
                 <div class="scr-tabbar">
                   <span class="tb on">
@@ -1239,7 +1274,7 @@
               <path d="M16 3.13a4 4 0 0 1 0 7.75" />
             </svg>
             <h3>Shared books</h3>
-            <p>Share with your partner or family, with full control over what they can see.</p>
+            <p>Share with your partner or family — you control what they can see.</p>
           </div>
         </div>
       </section>
