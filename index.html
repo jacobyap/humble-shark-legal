@@ -71,7 +71,7 @@
         color: var(--emerald);
       }
       .wrap {
-        max-width: 1020px;
+        max-width: 960px;
         margin: 0 auto;
         padding: 0 28px;
       }
@@ -187,30 +187,40 @@
       }
       .chip-privacy {
         position: absolute;
-        right: -30px;
-        top: -10px;
-        max-width: 152px;
-        display: flex;
-        align-items: center;
-        gap: 9px;
+        right: -64px;
+        top: 214px;
+        display: block;
         background: #fff;
         border: 1.5px solid var(--mint-deep);
-        border-radius: 14px;
-        padding: 9px 13px;
+        border-radius: 20px;
+        padding: 11px 18px 12px 15px;
         box-shadow: 0 14px 32px rgba(3, 39, 72, 0.14);
-        color: var(--emerald);
         z-index: 3;
         animation: chipBob 6s ease-in-out infinite;
       }
-      .chip-privacy svg {
-        flex-shrink: 0;
+      .chip-badge {
+        position: absolute;
+        top: -13px;
+        right: -13px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--emerald);
+        border: 2px solid #fff;
+        box-shadow: 0 4px 12px rgba(3, 39, 72, 0.18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
       }
-      .chip-privacy span {
+      .chip-text {
+        display: block;
         font-family: var(--display);
         font-size: 0.72rem;
         font-weight: 700;
-        line-height: 1.32;
+        line-height: 1.34;
         color: var(--ink);
+        white-space: nowrap;
       }
       @keyframes chipBob {
         0%,
@@ -339,8 +349,8 @@
         border-radius: 99px;
       }
       .range-tabs span.on {
-        color: #0a0a0a;
-        background: #e4e4e7;
+        color: #fafafa;
+        background: #2a2a2a;
       }
       .tiles {
         display: grid;
@@ -860,20 +870,23 @@
           <div class="bubble bb2" aria-hidden="true"></div>
           <div class="bubble bb3" aria-hidden="true"></div>
           <div class="chip-privacy" aria-hidden="true">
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect width="18" height="11" x="3" y="11" rx="2" />
-              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-            </svg>
-            <span>Private by design. No bank linking.</span>
+            <span class="chip-badge">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect width="18" height="12" x="3" y="10" rx="2" />
+                <path d="M7 10V7a5 5 0 0 1 10 0v3" />
+                <circle cx="12" cy="16" r="1" />
+              </svg>
+            </span>
+            <span class="chip-text">Private by design.<br />No bank linking.</span>
           </div>
           <div class="phone">
             <div
@@ -1214,13 +1227,12 @@
               aria-hidden="true"
             >
               <path
-                d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"
+                d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"
               />
-              <path d="M20 3v4" />
-              <path d="M22 5h-4" />
+              <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
             </svg>
-            <h3>Skip spreadsheets</h3>
-            <p>Track your assets without formulas or scattered files.</p>
+            <h3>All assets, one place</h3>
+            <p>See your complete financial picture in one clear, organised dashboard.</p>
           </div>
           <div class="feat">
             <svg
@@ -1236,12 +1248,13 @@
               aria-hidden="true"
             >
               <path
-                d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"
+                d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"
               />
-              <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
+              <path d="M20 3v4" />
+              <path d="M22 5h-4" />
             </svg>
-            <h3>All assets, one place</h3>
-            <p>See your complete financial picture in one clear, organised dashboard.</p>
+            <h3>Skip spreadsheets</h3>
+            <p>Track your assets without formulas or scattered files.</p>
           </div>
           <div class="feat">
             <svg
