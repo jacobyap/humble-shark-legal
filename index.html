@@ -6,7 +6,7 @@
     <title>Humble Shark — Private asset tracker for Malaysians</title>
     <meta
       name="description"
-      content="Track your cash, EPF, stocks, gold, crypto and property in one quiet place. No bank linking, no ads, no AI. Coming soon to iOS and Android."
+      content="Track your cash, EPF, stocks, gold, crypto and property in one quiet place. No bank linking, no ads, no AI. Launching soon on iOS and Android."
     />
     <meta property="og:title" content="Humble Shark — Every asset. One quiet place." />
     <meta
@@ -182,18 +182,55 @@
         flex: 0 0 350px;
         position: relative;
         align-self: flex-end;
+        transform: translateX(-20px);
         z-index: 2;
+      }
+      .chip-privacy {
+        position: absolute;
+        left: -136px;
+        top: -6px;
+        max-width: 178px;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        background: #fff;
+        border: 1.5px solid var(--mint-deep);
+        border-radius: 14px;
+        padding: 9px 13px;
+        box-shadow: 0 14px 32px rgba(3, 39, 72, 0.14);
+        color: var(--emerald);
+        z-index: 3;
+        animation: chipBob 6s ease-in-out infinite;
+      }
+      .chip-privacy svg {
+        flex-shrink: 0;
+      }
+      .chip-privacy span {
+        font-family: var(--display);
+        font-size: 0.72rem;
+        font-weight: 700;
+        line-height: 1.32;
+        color: var(--ink);
+      }
+      @keyframes chipBob {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-7px);
+        }
       }
       .phone {
         width: 272px;
         height: 560px;
-        margin: 0 auto;
+        margin: 0 auto -58px;
         border-radius: 54px;
         background: #050505;
         padding: 9px;
         border: 1px solid rgba(3, 39, 72, 0.4);
         box-shadow: 0 42px 80px rgba(3, 39, 72, 0.32);
-        transform: none;
+        transform: rotate(-7deg);
         animation: heroPhone 1s ease both 0.15s;
         display: flex;
         position: relative;
@@ -202,11 +239,11 @@
       @keyframes heroPhone {
         from {
           opacity: 0;
-          transform: translateY(40px);
+          transform: translateY(40px) rotate(-7deg);
         }
         to {
           opacity: 1;
-          transform: none;
+          transform: rotate(-7deg);
         }
       }
       .screen {
@@ -705,16 +742,17 @@
         .stores {
           justify-content: center;
         }
-        .hf {
-          margin-left: auto;
-          margin-right: auto;
-        }
         .hero-visual {
           flex: none;
           align-self: center;
+          transform: none;
         }
         .phone {
           transform: none;
+          margin-bottom: 0;
+        }
+        .chip-privacy {
+          display: none;
         }
         @keyframes heroPhone {
           from {
@@ -730,6 +768,7 @@
       @media (prefers-reduced-motion: reduce) {
         .hero-copy,
         .phone,
+        .chip-privacy,
         .ping {
           animation: none;
         }
@@ -761,8 +800,8 @@
         <div class="hero-copy">
           <h1>Every asset.<br />One quiet place.</h1>
           <p class="lead">
-            Track cash, EPF, investments, property and more — privately, in one beautifully simple
-            app.
+            Track cash, EPF, investments, property and more —<br />
+            privately, in one simple, beautifully organised app.
           </p>
           <div class="stores">
             <span class="store-pill ios">
@@ -794,7 +833,7 @@
               Google Play
             </span>
           </div>
-          <p class="stores-note">Coming soon to iOS and Android</p>
+          <p class="stores-note">Launching soon on iOS and Android</p>
 
         </div>
 
@@ -804,6 +843,22 @@
           <div class="bubble bb1" aria-hidden="true"></div>
           <div class="bubble bb2" aria-hidden="true"></div>
           <div class="bubble bb3" aria-hidden="true"></div>
+          <div class="chip-privacy" aria-hidden="true">
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect width="18" height="11" x="3" y="11" rx="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            <span>Private by design — no bank logins, ever.</span>
+          </div>
           <div class="phone">
             <div
               class="screen"
@@ -1141,11 +1196,8 @@
               <path d="M20 3v4" />
               <path d="M22 5h-4" />
             </svg>
-            <h3>Replace spreadsheets</h3>
-            <p>
-              Skip manual formulas and scattered files. Keep your records clean, simple and always
-              accessible.
-            </p>
+            <h3>Skip spreadsheets</h3>
+            <p>Track your assets without formulas or scattered files.</p>
           </div>
           <div class="feat feat-hi">
             <svg
@@ -1186,14 +1238,13 @@
               <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
               <path d="M16 3.13a4 4 0 0 1 0 7.75" />
             </svg>
-            <h3>Shared asset books</h3>
-            <p>Share a book with your partner or family — they see only what you allow.</p>
+            <h3>Shared books</h3>
+            <p>Share with your partner or family, with full control over what they can see.</p>
           </div>
         </div>
       </section>
       <div class="quiet wrap">
         <p>Stay humble. <span>Keep building.</span></p>
-        <small>Private by design — no bank logins, ever.</small>
       </div>
     </main>
 
@@ -1201,7 +1252,6 @@
       <div class="wrap">
         <div class="foot-top">
           <div class="foot-brand"><img src="logo.png" alt="" /> Humble Shark</div>
-          <p class="foot-note">Coming soon to iOS and Android</p>
         </div>
         <div class="foot-links">
           <a href="privacy.html">Privacy Policy</a>
