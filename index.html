@@ -161,9 +161,9 @@
         transform: translateY(-2px);
       }
       .store-pill.ios {
-        background: var(--ink);
-        color: #eafff6;
-        box-shadow: 0 10px 26px rgba(3, 39, 72, 0.22);
+        background: rgba(255, 255, 255, 0.7);
+        border: 1.5px solid rgba(3, 39, 72, 0.25);
+        color: var(--ink);
       }
       .store-pill.android {
         background: rgba(255, 255, 255, 0.7);
@@ -478,128 +478,6 @@
           opacity: 0;
         }
       }
-      .side-chip {
-        position: absolute;
-        background: #fff;
-        border: 1.5px solid var(--mint-deep);
-        border-radius: 16px;
-        padding: 10px 14px;
-        box-shadow: 0 14px 32px rgba(3, 39, 72, 0.14);
-        animation: bob 6s ease-in-out infinite;
-        z-index: 3;
-      }
-      .side-chip .sc-k {
-        font-size: 0.58rem;
-        font-weight: 700;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin: 0 0 2px;
-      }
-      .side-chip .sc-v {
-        font-family: var(--display);
-        font-size: 0.85rem;
-        font-weight: 700;
-        color: var(--ink);
-        margin: 0;
-        white-space: nowrap;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .side-chip .sc-v.g {
-        color: var(--emerald);
-      }
-      .side-chip img {
-        width: 20px;
-        height: 20px;
-      }
-      .sc1 {
-        left: -84px;
-        top: 108px;
-        transform: rotate(-3deg);
-      }
-      .sc2 {
-        right: -66px;
-        bottom: 168px;
-        transform: rotate(2deg);
-        animation-delay: 1.4s;
-      }
-      @keyframes bob {
-        0%,
-        100% {
-          transform: translateY(0) rotate(-3deg);
-        }
-        50% {
-          transform: translateY(-8px) rotate(-3deg);
-        }
-      }
-      .sc2 {
-        animation-name: bob2;
-      }
-      @keyframes bob2 {
-        0%,
-        100% {
-          transform: translateY(0) rotate(2deg);
-        }
-        50% {
-          transform: translateY(-8px) rotate(2deg);
-        }
-      }
-      .sc3 {
-        left: -102px;
-        bottom: 96px;
-        animation-name: bob3;
-        animation-delay: 2.2s;
-      }
-      @keyframes bob3 {
-        0%,
-        100% {
-          transform: translateY(0) rotate(-2deg);
-        }
-        50% {
-          transform: translateY(-8px) rotate(-2deg);
-        }
-      }
-      .sc4 {
-        right: -74px;
-        top: 52px;
-        animation-name: bob4;
-        animation-delay: 3.6s;
-      }
-      @keyframes bob4 {
-        0%,
-        100% {
-          transform: translateY(0) rotate(3deg);
-        }
-        50% {
-          transform: translateY(-8px) rotate(3deg);
-        }
-      }
-      .sc-avs {
-        display: inline-flex;
-        margin-right: 2px;
-      }
-      .sc-avs span {
-        width: 18px;
-        height: 18px;
-        border-radius: 9px;
-        border: 1.5px solid #fff;
-        display: inline-block;
-      }
-      .sc-avs span:first-child {
-        background: linear-gradient(135deg, #10b981, #047857);
-        z-index: 1;
-      }
-      .sc-avs span:last-child {
-        background: linear-gradient(135deg, #38bdf8, #1d4ed8);
-        margin-left: -6px;
-      }
-      @media (max-width: 860px) {
-        .side-chip {
-          display: none;
-        }
-      }
       .halo {
         position: absolute;
         left: 50%;
@@ -850,7 +728,6 @@
       @media (prefers-reduced-motion: reduce) {
         .hero-copy,
         .phone,
-        .side-chip,
         .ping {
           animation: none;
         }
