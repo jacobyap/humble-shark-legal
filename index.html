@@ -221,39 +221,6 @@
         flex-direction: column;
         padding: 12px 16px 14px;
       }
-      .scr-view-a {
-        animation: showA 12s ease-in-out infinite;
-      }
-      .scr-view-b {
-        opacity: 0;
-        animation: showB 12s ease-in-out infinite;
-      }
-      @keyframes showA {
-        0%,
-        42% {
-          opacity: 1;
-        }
-        50%,
-        92% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-      @keyframes showB {
-        0%,
-        42% {
-          opacity: 0;
-        }
-        50%,
-        92% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0;
-        }
-      }
       .island {
         width: 84px;
         height: 22px;
@@ -269,22 +236,6 @@
         align-items: center;
         min-height: 0;
         margin-bottom: 10px;
-      }
-      .scr-tabs {
-        display: flex;
-        justify-content: space-around;
-        border-top: 1px solid #1c1c1c;
-        margin-top: auto;
-        padding-top: 12px;
-      }
-      .scr-tabs span {
-        width: 16px;
-        height: 16px;
-        border-radius: 5px;
-        background: #26262b;
-      }
-      .scr-tabs span.on {
-        background: #34d399;
       }
       .dash-top {
         display: flex;
@@ -304,6 +255,11 @@
         border-radius: 99px;
         padding: 4px 9px;
       }
+      .top-right {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
       .mini-avatar {
         width: 22px;
         height: 22px;
@@ -322,6 +278,9 @@
         gap: 8px;
       }
       .myr-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
         font-size: 0.52rem;
         font-weight: 700;
         letter-spacing: 0.08em;
@@ -354,10 +313,28 @@
         gap: 6px;
       }
       .tile {
+        display: flex;
+        align-items: center;
+        gap: 7px;
         background: #141414;
         border: 1px solid #202020;
         border-radius: 11px;
-        padding: 7px 9px;
+        padding: 7px 8px;
+        min-width: 0;
+      }
+      .tile-icon {
+        width: 22px;
+        height: 22px;
+        border-radius: 8px;
+        background: #1d1d20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #a1a1aa;
+        flex-shrink: 0;
+      }
+      .tile > span:last-child {
+        min-width: 0;
       }
       .tile small {
         display: block;
@@ -373,83 +350,53 @@
         color: #fafafa;
         white-space: nowrap;
       }
-      .assets-head {
+      .apex-card {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        margin: 2px 0 8px;
+        justify-content: space-between;
+        background: #141414;
+        border: 1px solid #202020;
+        border-radius: 13px;
+        padding: 9px 12px;
+        margin-top: 6px;
       }
-      .assets-head b {
+      .apex-card small {
+        display: block;
+        font-size: 0.46rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        color: #71717a;
+        margin-bottom: 2px;
+      }
+      .apex-card b {
+        font-family: var(--display);
         font-size: 0.95rem;
         font-weight: 800;
         color: #fafafa;
       }
-      .add-pill {
-        font-size: 0.56rem;
-        font-weight: 700;
-        color: #032748;
-        background: #34d399;
-        border-radius: 99px;
-        padding: 4px 9px;
+      .scr-tabbar {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #1c1c1c;
+        margin-top: auto;
+        padding-top: 9px;
       }
-      .gauge-wrap {
-        position: relative;
-        margin: 2px 0 8px;
-      }
-      .gauge-wrap svg {
-        display: block;
-        width: 78%;
-        margin: 0 auto;
-        height: auto;
-      }
-      .gauge-center {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 2px;
-        text-align: center;
-      }
-      .gauge-center b {
-        display: block;
-        font-family: var(--display);
-        font-size: 0.82rem;
-        font-weight: 800;
-        color: #fafafa;
-      }
-      .gauge-center small {
-        font-size: 0.52rem;
+      .tb {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        font-size: 0.42rem;
+        font-weight: 600;
         color: #71717a;
       }
-      .cls-row {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        margin-top: 7px;
-      }
-      .cls-dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 3px;
-      }
-      .cls-name {
-        flex: 1;
-        font-size: 0.52rem;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        color: #a1a1aa;
-      }
-      .cls-val {
-        font-size: 0.56rem;
-        font-weight: 600;
-        color: #d4d4d8;
-        font-variant-numeric: tabular-nums;
-      }
-      .chev {
-        color: #52525b;
-        font-size: 0.7rem;
-        margin-left: 2px;
+      .tb.on {
+        color: #34d399;
       }
       .scr-label {
+        display: flex;
+        align-items: center;
+        gap: 5px;
         font-size: 0.58rem;
         font-weight: 700;
         letter-spacing: 0.18em;
@@ -900,13 +847,8 @@
         }
         .ping,
         .halo,
-        .bubble,
-        .scr-view-b {
+        .bubble {
           display: none;
-        }
-        .scr-view-a {
-          animation: none;
-          opacity: 1;
         }
         .draw {
           stroke-dasharray: none;
@@ -1075,9 +1017,9 @@
             <div
               class="screen"
               role="img"
-              aria-label="Humble Shark app cycling between the Dashboard — total assets RM 3,773,941, up 313 percent all time, trend chart and stat tiles — and the Assets screen with an allocation gauge and asset rows"
+              aria-label="Humble Shark dashboard showing total assets of RM 3,773,941, up 313 percent all time, a trend chart, stat tiles and the Megalodon apex tier"
             >
-              <div class="app-screen scr-view-a">
+              <div class="app-screen">
                 <div class="island"></div>
                 <div class="dash-top">
                   <span class="book-pill">
@@ -1110,12 +1052,61 @@
                       <path d="m6 9 6 6 6-6" />
                     </svg>
                   </span>
-                  <span class="mini-avatar">J</span>
+                  <span class="top-right">
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#e4e4e7"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M10.268 21a2 2 0 0 0 3.464 0" />
+                      <path
+                        d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.737 7.326"
+                      />
+                    </svg>
+                    <span class="mini-avatar">J</span>
+                  </span>
                 </div>
-                <p class="scr-label">TOTAL ASSETS</p>
+                <p class="scr-label">
+                  TOTAL ASSETS
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </p>
                 <div class="total-row">
                   <p class="scr-total">RM 3,773,941</p>
-                  <span class="myr-chip">MYR</span>
+                  <span class="myr-chip">
+                    MYR
+                    <svg
+                      width="7"
+                      height="7"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </span>
                 </div>
                 <p class="scr-delta">↗ +313.0% · all time</p>
                 <div class="chart-wrap">
@@ -1146,114 +1137,104 @@
                   <span>1M</span><span>6M</span><span>1Y</span><span class="on">ALL</span>
                 </div>
                 <div class="tiles">
-                  <div class="tile"><small>ASSETS</small><b>12</b></div>
-                  <div class="tile"><small>#1 ASSET</small><b>Apple</b></div>
-                  <div class="tile"><small>CASH BUFFER</small><b>RM 287,720</b></div>
-                  <div class="tile"><small>CURRENCIES</small><b>4</b></div>
-                </div>
-                <div class="scr-tabs">
-                  <span class="on"></span><span></span><span></span><span></span><span></span>
-                </div>
-              </div>
-
-              <div class="app-screen scr-view-b">
-                <div class="island"></div>
-                <p class="scr-label">ASSETS</p>
-                <div class="assets-head">
-                  <b>Your Assets</b>
-                  <span class="add-pill">+ Add asset</span>
-                </div>
-                <div class="gauge-wrap">
-                  <svg viewBox="0 0 200 106" aria-hidden="true">
-                    <path
-                      d="M22 100 A78 78 0 0 1 63.4 31.1"
-                      fill="none"
-                      stroke="#3b82f6"
-                      stroke-width="17"
-                    />
-                    <path
-                      d="M67 29.3 A78 78 0 0 1 140.2 33.1"
-                      fill="none"
-                      stroke="#45c8a8"
-                      stroke-width="17"
-                    />
-                    <path
-                      d="M143.6 35.3 A78 78 0 0 1 158 47.8"
-                      fill="none"
-                      stroke="#eab308"
-                      stroke-width="17"
-                    />
-                    <path
-                      d="M160.6 50.9 A78 78 0 0 1 170.1 65.8"
-                      fill="none"
-                      stroke="#f97316"
-                      stroke-width="17"
-                    />
-                    <path
-                      d="M171.8 69.5 A78 78 0 0 1 173.8 74.6"
-                      fill="none"
-                      stroke="#8b5cf6"
-                      stroke-width="17"
-                    />
-                    <path
-                      d="M175 78.5 A78 78 0 0 1 176.3 83.8"
-                      fill="none"
-                      stroke="#ec4899"
-                      stroke-width="17"
-                    />
-                    <path
-                      d="M177 87.8 A78 78 0 0 1 178 100"
-                      fill="none"
-                      stroke="#38bdf8"
-                      stroke-width="17"
-                    />
-                  </svg>
-                  <div class="gauge-center">
-                    <b>RM 3,773,941</b>
-                    <small>12 assets · 8 classes</small>
+                  <div class="tile">
+                    <span class="tile-icon">
+                      <svg
+                        width="11"
+                        height="11"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"
+                        />
+                        <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" />
+                        <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />
+                      </svg>
+                    </span>
+                    <span><small>ASSETS</small><b>12</b></span>
+                  </div>
+                  <div class="tile">
+                    <span class="tile-icon">
+                      <svg
+                        width="11"
+                        height="11"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                        <path d="M4 22h16" />
+                        <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                        <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                        <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                      </svg>
+                    </span>
+                    <span><small>#1 ASSET</small><b>Apple</b></span>
+                  </div>
+                  <div class="tile">
+                    <span class="tile-icon">
+                      <svg
+                        width="11"
+                        height="11"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <rect width="20" height="12" x="2" y="6" rx="2" />
+                        <circle cx="12" cy="12" r="2" />
+                        <path d="M6 12h.01M18 12h.01" />
+                      </svg>
+                    </span>
+                    <span><small>CASH BUFFER</small><b>RM 287,720</b></span>
+                  </div>
+                  <div class="tile">
+                    <span class="tile-icon">
+                      <svg
+                        width="11"
+                        height="11"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                        <path d="M2 12h20" />
+                      </svg>
+                    </span>
+                    <span><small>CURRENCIES</small><b>4</b></span>
                   </div>
                 </div>
-                <div class="cls-row">
-                  <span class="cls-dot" style="background: #3b82f6"></span>
-                  <span class="cls-name">STOCKS · 37.0%</span>
-                  <span class="cls-val">RM 1,394,662</span>
-                </div>
-                <div class="arow">
-                  <span class="adot">
-                    <svg
-                      width="13"
-                      height="13"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M9 5v4" />
-                      <rect width="4" height="6" x="7" y="9" rx="1" />
-                      <path d="M9 15v2" />
-                      <path d="M17 3v2" />
-                      <rect width="4" height="8" x="15" y="5" rx="1" />
-                      <path d="M17 13v3" />
-                      <path d="M3 3v16a2 2 0 0 0 2 2h16" />
-                    </svg>
+                <div class="apex-card">
+                  <span>
+                    <small>APEX TIER</small>
+                    <b>Megalodon</b>
                   </span>
-                  <span class="aname">Apple</span>
-                  <span class="aval">RM 1,394,662</span>
-                  <span class="chev">›</span>
+                  <img src="tiers/megalodon.png" alt="" width="38" height="38" />
                 </div>
-                <div class="cls-row">
-                  <span class="cls-dot" style="background: #45c8a8"></span>
-                  <span class="cls-name">PROPERTY · 33.2%</span>
-                  <span class="cls-val">RM 1,254,059</span>
-                </div>
-                <div class="arow">
-                  <span class="adot">
+                <div class="scr-tabbar">
+                  <span class="tb on">
                     <svg
-                      width="13"
-                      height="13"
+                      width="12"
+                      height="12"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -1262,46 +1243,76 @@
                       stroke-linejoin="round"
                       aria-hidden="true"
                     >
-                      <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+                      <rect width="7" height="9" x="3" y="3" rx="1" />
+                      <rect width="7" height="5" x="14" y="3" rx="1" />
+                      <rect width="7" height="9" x="14" y="12" rx="1" />
+                      <rect width="7" height="5" x="3" y="16" rx="1" />
+                    </svg>
+                    Dashboard
+                  </span>
+                  <span class="tb">
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
                       <path
-                        d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                        d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"
+                      />
+                      <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
+                    </svg>
+                    Assets
+                  </span>
+                  <span class="tb">
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+                      <path d="m19 9-5 5-4-4-3 3" />
+                    </svg>
+                    Insights
+                  </span>
+                  <span class="tb">
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                      <path d="M3 3v5h5" />
+                      <path d="M12 7v5l4 2" />
+                    </svg>
+                    History
+                  </span>
+                  <span class="tb">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M3 20 C7 10 12 4.5 14.5 3 C15 9 17.5 15 21 20 Z"
+                        fill="currentColor"
                       />
                     </svg>
+                    Progress
                   </span>
-                  <span class="aname">Melbourne CBD</span>
-                  <span class="aval">RM 854,059</span>
-                  <span class="chev">›</span>
-                </div>
-                <div class="cls-row">
-                  <span class="cls-dot" style="background: #eab308"></span>
-                  <span class="cls-name">GOLD · 8.5%</span>
-                  <span class="cls-val">RM 320,000</span>
-                </div>
-                <div class="arow">
-                  <span class="adot">
-                    <svg
-                      width="13"
-                      height="13"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <circle cx="8" cy="8" r="6" />
-                      <path d="M18.09 10.37A6 6 0 1 1 10.34 18" />
-                      <path d="M7 6h1v4" />
-                      <path d="m16.71 13.88.7.71-2.82 2.82" />
-                    </svg>
-                  </span>
-                  <span class="aname">Gold Bar</span>
-                  <span class="aval">RM 320,000</span>
-                  <span class="chev">›</span>
-                </div>
-                <div class="scr-tabs">
-                  <span></span><span class="on"></span><span></span><span></span><span></span>
                 </div>
               </div>
             </div>
