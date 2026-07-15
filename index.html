@@ -107,12 +107,13 @@
         display: flex;
         align-items: center;
         gap: 40px;
-        padding-top: 40px;
-        min-height: 480px;
+        padding-top: 32px;
+        padding-bottom: 32px;
+        min-height: 0;
       }
       .hero-copy {
         flex: 1;
-        padding-bottom: 72px;
+        padding-bottom: 0;
         animation: rise 0.7s ease both;
       }
       @keyframes rise {
@@ -190,7 +191,7 @@
         padding: 9px;
         border: 1px solid rgba(3, 39, 72, 0.4);
         box-shadow: 0 42px 80px rgba(3, 39, 72, 0.32);
-        transform: translateY(34px);
+        transform: none;
         animation: heroPhone 1s ease both 0.15s;
         display: flex;
         position: relative;
@@ -199,11 +200,11 @@
       @keyframes heroPhone {
         from {
           opacity: 0;
-          transform: translateY(70px);
+          transform: translateY(40px);
         }
         to {
           opacity: 1;
-          transform: translateY(34px);
+          transform: none;
         }
       }
       .screen {
@@ -672,52 +673,65 @@
           opacity: 0;
         }
       }
-      /* diagonal cut */
-      .diagonal {
-        height: 84px;
-        background: var(--mint);
-        clip-path: polygon(0 0, 100% 0, 0 100%);
-        margin-bottom: -1px;
+      /* ---------- feature band (3-up, highlighted middle) ---------- */
+      .features {
+        background: var(--paper);
+        padding: 40px 0 46px;
       }
-      /* ---------- hero feature list (mirrors the sign-in screen) ---------- */
-      .hero-features {
-        margin-top: 34px;
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        align-items: start;
       }
-      .hf {
-        display: flex;
-        align-items: flex-start;
-        gap: 13px;
-        max-width: 440px;
+      .feat {
+        padding: 30px 26px;
         text-align: left;
+        border-radius: 24px;
       }
-      .hf-icon {
-        width: 42px;
-        height: 42px;
-        border-radius: 21px;
-        background: #fff;
-        border: 1.5px solid var(--mint-deep);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      .feat-icon {
         color: var(--emerald);
-        box-shadow: 0 6px 14px rgba(3, 39, 72, 0.08);
-        flex-shrink: 0;
+        display: block;
+        margin-bottom: 20px;
       }
-      .hf h3 {
+      .feat h3 {
         font-family: var(--display);
-        font-size: 0.98rem;
+        font-size: 1.5rem;
         font-weight: 800;
         letter-spacing: -0.01em;
-        margin: 1px 0 3px;
+        line-height: 1.15;
+        margin: 0 0 10px;
         color: var(--ink);
       }
-      .hf p {
+      .feat p {
         margin: 0;
-        font-size: 0.86rem;
+        font-size: 0.96rem;
         color: var(--ink-2);
+        max-width: 300px;
+      }
+      .feat-hi {
+        background: var(--mint);
+        margin-top: -26px;
+        margin-bottom: -26px;
+        padding-top: 56px;
+        padding-bottom: 82px;
+        box-shadow: 0 26px 54px rgba(3, 39, 72, 0.12);
+      }
+      @media (max-width: 820px) {
+        .features {
+          padding: 24px 0 30px;
+        }
+        .features-grid {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+        .feat-hi {
+          margin: 0;
+          padding: 30px 26px;
+        }
+        .feat p {
+          max-width: none;
+        }
       }
       /* ---------- quiet line ---------- */
       .quiet {
@@ -820,16 +834,16 @@
           align-self: center;
         }
         .phone {
-          transform: translateY(26px);
+          transform: none;
         }
         @keyframes heroPhone {
           from {
             opacity: 0;
-            transform: translateY(60px);
+            transform: translateY(40px);
           }
           to {
             opacity: 1;
-            transform: translateY(26px);
+            transform: none;
           }
         }
       }
@@ -903,84 +917,6 @@
           </div>
           <p class="stores-note">Coming soon to iOS and Android</p>
 
-          <div class="hero-features">
-            <div class="hf">
-              <div class="hf-icon">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"
-                  />
-                  <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
-                </svg>
-              </div>
-              <div>
-                <h3>All assets, one place</h3>
-                <p>See your complete financial picture in one clear, organised dashboard.</p>
-              </div>
-            </div>
-            <div class="hf">
-              <div class="hf-icon">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"
-                  />
-                  <path d="M20 3v4" />
-                  <path d="M22 5h-4" />
-                </svg>
-              </div>
-              <div>
-                <h3>Replace spreadsheets</h3>
-                <p>
-                  Skip manual formulas and scattered files. Keep your records clean, simple and
-                  always accessible.
-                </p>
-              </div>
-            </div>
-            <div class="hf">
-              <div class="hf-icon">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
-              </div>
-              <div>
-                <h3>Shared asset books</h3>
-                <p>Share a book with your partner or family — they see only what you allow.</p>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div class="hero-visual">
@@ -989,25 +925,6 @@
           <div class="bubble bb1" aria-hidden="true"></div>
           <div class="bubble bb2" aria-hidden="true"></div>
           <div class="bubble bb3" aria-hidden="true"></div>
-          <div class="side-chip sc1">
-            <p class="sc-k">This month</p>
-            <p class="sc-v g">+RM 4,120</p>
-          </div>
-          <div class="side-chip sc2">
-            <p class="sc-k">Tier up</p>
-            <p class="sc-v"><img src="tiers/reef.png" alt="" /> Reef Shark</p>
-          </div>
-          <div class="side-chip sc3">
-            <p class="sc-k">Shared book</p>
-            <p class="sc-v">
-              <span class="sc-avs"><span></span><span></span></span>
-              Family · 2 members
-            </p>
-          </div>
-          <div class="side-chip sc4">
-            <p class="sc-k">EPF benchmark</p>
-            <p class="sc-v g">On pace for Basic</p>
-          </div>
           <div class="phone">
             <div
               class="screen"
@@ -1323,9 +1240,78 @@
         </div>
       </div>
     </div>
-    <div class="diagonal"></div>
-
     <main>
+      <section class="features">
+        <div class="wrap features-grid">
+          <div class="feat">
+            <svg
+              class="feat-icon"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"
+              />
+              <path d="M20 3v4" />
+              <path d="M22 5h-4" />
+            </svg>
+            <h3>Replace spreadsheets</h3>
+            <p>
+              Skip manual formulas and scattered files. Keep your records clean, simple and always
+              accessible.
+            </p>
+          </div>
+          <div class="feat feat-hi">
+            <svg
+              class="feat-icon"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"
+              />
+              <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
+            </svg>
+            <h3>All assets, one place</h3>
+            <p>See your complete financial picture in one clear, organised dashboard.</p>
+          </div>
+          <div class="feat">
+            <svg
+              class="feat-icon"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            <h3>Shared asset books</h3>
+            <p>Share a book with your partner or family — they see only what you allow.</p>
+          </div>
+        </div>
+      </section>
       <div class="quiet wrap">
         <p>Stay humble. <span>Keep building.</span></p>
         <small>Private by design — no bank logins, ever.</small>
