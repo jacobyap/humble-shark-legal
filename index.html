@@ -639,11 +639,24 @@
         padding: 30px 26px;
         text-align: left;
         border-radius: 24px;
+        transition:
+          transform 0.28s ease,
+          box-shadow 0.28s ease,
+          background-color 0.28s ease;
+      }
+      .feat:hover {
+        transform: translateY(-4px);
+        background-color: var(--mint);
+        box-shadow: 0 16px 34px rgba(3, 39, 72, 0.1);
+      }
+      .feat:hover .feat-icon {
+        color: var(--emerald-bright);
       }
       .feat-icon {
         color: var(--emerald);
         display: block;
         margin-bottom: 20px;
+        transition: color 0.28s ease;
       }
       .feat h3 {
         font-family: var(--display);
@@ -1288,7 +1301,7 @@
         <div class="foot-links">
           <a href="privacy.html">Privacy Policy</a>
           <a href="terms.html">Terms of Use</a>
-          <a href="mailto:hello@humbleshark.app">hello@humbleshark.app</a>
+          <a href="mailto:hello@humbleshark.app">Contact</a>
         </div>
         <p class="copyright">© 2026 Humble Shark. Made in Malaysia.</p>
       </div>
