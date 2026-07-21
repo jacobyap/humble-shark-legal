@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page not found — Humble Shark</title>
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#d9f1e5" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <!-- NOTE: unlike the other pages, all URLs here are root-absolute — GitHub
+         Pages serves /404.html for misses at ANY path depth, where relative
+         links would break. -->
+    <style>
+      @font-face {
+        font-family: 'Outfit';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url('/fonts/outfit-latin-500-normal.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Outfit';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('/fonts/outfit-latin-700-normal.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Outfit';
+        font-style: normal;
+        font-weight: 800;
+        font-display: swap;
+        src: url('/fonts/outfit-latin-800-normal.woff2') format('woff2');
+      }
+      :root {
+        --mint: #d9f1e5;
+        --mint-deep: #bfe4d2;
+        --paper: #fcfefd;
+        --ink: #032748;
+        --ink-2: #3f6079;
+        --muted: #6b8ba3;
+        --emerald: #059669;
+        --display: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: var(--mint);
+        color: var(--ink);
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          sans-serif;
+        display: flex;
+        flex-direction: column;
+      }
+      .wrap {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 28px;
+        width: 100%;
+      }
+      header {
+        padding: 26px 0 6px;
+      }
+      .wordmark {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--display);
+        font-size: 1.35rem;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+        text-decoration: none;
+      }
+      .wordmark img {
+        width: 48px;
+        height: 48px;
+        display: block;
+      }
+      main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px 0 56px;
+      }
+      .lost {
+        animation: rise 0.7s ease both;
+      }
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .scene {
+        position: relative;
+        width: 220px;
+        height: 180px;
+        margin: 0 auto 6px;
+      }
+      .halo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 200px;
+        height: 200px;
+        margin: -100px 0 0 -100px;
+        border-radius: 50%;
+        border: 2px solid rgba(5, 150, 105, 0.35);
+        animation: sonar 5s ease-out infinite;
+        pointer-events: none;
+      }
+      .halo.h2 {
+        animation-delay: 2.5s;
+      }
+      @keyframes sonar {
+        0% {
+          transform: scale(0.5);
+          opacity: 0.7;
+        }
+        80%,
+        100% {
+          transform: scale(1.2);
+          opacity: 0;
+        }
+      }
+      .scene img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 108px;
+        height: 108px;
+        margin: -54px 0 0 -54px;
+        animation: drift 6s ease-in-out infinite;
+      }
+      @keyframes drift {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-4deg);
+        }
+        50% {
+          transform: translateY(-10px) rotate(4deg);
+        }
+      }
+      .bubble {
+        position: absolute;
+        border-radius: 50%;
+        border: 1.5px solid var(--mint-deep);
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        animation: bubbleRise 7s ease-in infinite;
+        pointer-events: none;
+      }
+      .bb1 {
+        width: 12px;
+        height: 12px;
+        left: 34px;
+        bottom: 40px;
+      }
+      .bb2 {
+        width: 8px;
+        height: 8px;
+        right: 44px;
+        bottom: 70px;
+        animation-delay: 2.4s;
+      }
+      .bb3 {
+        width: 15px;
+        height: 15px;
+        right: 26px;
+        bottom: 26px;
+        animation-delay: 4.6s;
+      }
+      @keyframes bubbleRise {
+        0% {
+          transform: translateY(0);
+          opacity: 0;
+        }
+        12% {
+          opacity: 0.75;
+        }
+        70% {
+          opacity: 0.35;
+        }
+        100% {
+          transform: translateY(-140px);
+          opacity: 0;
+        }
+      }
+      .code {
+        font-family: var(--display);
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: var(--emerald);
+        margin: 0 0 10px;
+      }
+      h1 {
+        font-family: var(--display);
+        font-size: clamp(1.9rem, 5vw, 2.6rem);
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        margin: 0 0 14px;
+      }
+      .lead {
+        font-size: 1.02rem;
+        color: var(--ink-2);
+        max-width: 420px;
+        margin: 0 auto 28px;
+        line-height: 1.55;
+      }
+      .home-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-width: 180px;
+        border-radius: 14px;
+        padding: 13px 24px;
+        font-family: var(--display);
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: #fff;
+        background: var(--emerald);
+        text-decoration: none;
+        transition: transform 0.2s ease;
+      }
+      .home-pill:hover {
+        transform: translateY(-2px);
+      }
+      .help-note {
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin: 18px 0 0;
+      }
+      .help-note a {
+        color: var(--emerald);
+      }
+      footer {
+        background: #063050;
+        color: #cfe4dd;
+        padding: 18px 0 20px;
+      }
+      .foot-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px 32px;
+        flex-wrap: wrap;
+      }
+      .foot-brand {
+        font-family: var(--display);
+        font-size: 1rem;
+        font-weight: 800;
+        color: #fff;
+        white-space: nowrap;
+      }
+      .foot-brand span {
+        color: #10b981;
+      }
+      .foot-links {
+        display: flex;
+        gap: 10px 26px;
+        flex-wrap: wrap;
+      }
+      .foot-links a {
+        font-size: 0.86rem;
+        color: #fff;
+        text-decoration: none;
+      }
+      .foot-links a:hover {
+        color: #bfe4d2;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .lost,
+        .scene img {
+          animation: none;
+        }
+        .halo,
+        .bubble {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <a class="wordmark" href="/">
+          <img src="/logo.png" alt="" />
+          Humble Shark
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <div class="lost wrap">
+        <div class="scene" aria-hidden="true">
+          <div class="halo"></div>
+          <div class="halo h2"></div>
+          <div class="bubble bb1"></div>
+          <div class="bubble bb2"></div>
+          <div class="bubble bb3"></div>
+          <img src="/logo.png" alt="" />
+        </div>
+        <p class="code">404 · OPEN WATER</p>
+        <h1>This page swam off.</h1>
+        <p class="lead">
+          Nothing lives at this address — the link may have drifted, or the page moved to quieter
+          waters.
+        </p>
+        <a class="home-pill" href="/">Back to the surface</a>
+        <p class="help-note">
+          Looking for something specific?
+          <a href="mailto:support@humbleshark.app">support@humbleshark.app</a>
+        </p>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="foot-top">
+          <div class="foot-brand">Stay humble. <span>Keep building.</span> 🦈</div>
+          <div class="foot-links">
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/terms.html">Terms of Use</a>
+            <a href="mailto:hello@humbleshark.app">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
