@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Humble Shark — sitemap for humbleshark.app.
+  Lists only canonical, indexable pages: 404.html is noindex and
+  index.launch.html never deploys (it replaces index.html at launch).
+  Keep <lastmod> in sync when a page's content actually changes.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://humbleshark.app/</loc>
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://humbleshark.app/privacy.html</loc>
+    <lastmod>2026-07-14</lastmod>
+  </url>
+  <url>
+    <loc>https://humbleshark.app/terms.html</loc>
+    <lastmod>2026-07-14</lastmod>
+  </url>
+  <url>
+    <loc>https://humbleshark.app/delete-account.html</loc>
+    <lastmod>2026-07-14</lastmod>
+  </url>
+</urlset>
