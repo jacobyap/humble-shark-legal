@@ -768,7 +768,11 @@
       .foot-mascot {
         width: 26px;
         height: 26px;
-        display: block;
+        /* inline-block, not a flex item: making .foot-brand a flex container
+           put its gap between "Stay humble." and "Keep building." too. */
+        display: inline-block;
+        vertical-align: -7px;
+        margin-right: 9px;
         animation: bob 5s ease-in-out infinite;
       }
       @keyframes bob {
@@ -798,9 +802,6 @@
         margin-bottom: 0;
       }
       .foot-brand {
-        display: flex;
-        align-items: center;
-        gap: 9px;
         flex: 1 1 0;
         font-family: var(--display);
         font-size: 1rem;
