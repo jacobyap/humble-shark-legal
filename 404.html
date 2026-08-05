@@ -251,6 +251,21 @@
       .help-note a {
         color: var(--emerald);
       }
+      .foot-mascot {
+        width: 26px;
+        height: 26px;
+        display: block;
+        animation: bob 5s ease-in-out infinite;
+      }
+      @keyframes bob {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-3deg);
+        }
+        50% {
+          transform: translateY(-4px) rotate(3deg);
+        }
+      }
       footer {
         background: #063050;
         color: #cfe4dd;
@@ -264,6 +279,9 @@
         flex-wrap: wrap;
       }
       .foot-brand {
+        display: flex;
+        align-items: center;
+        gap: 9px;
         font-family: var(--display);
         font-size: 1rem;
         font-weight: 800;
@@ -288,7 +306,8 @@
       }
       @media (prefers-reduced-motion: reduce) {
         .lost,
-        .scene img {
+        .scene img,
+        .foot-mascot {
           animation: none;
         }
         .halo,
@@ -335,7 +354,10 @@
     <footer>
       <div class="wrap">
         <div class="foot-top">
-          <div class="foot-brand">Stay humble. <span>Keep building.</span> 🦈</div>
+          <div class="foot-brand">
+            <img class="foot-mascot" src="logo.png" alt="" />
+            Stay humble. <span>Keep building.</span>
+          </div>
           <div class="foot-links">
             <a href="/privacy.html">Privacy Policy</a>
             <a href="/terms.html">Terms of Use</a>

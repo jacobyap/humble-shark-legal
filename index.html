@@ -744,12 +744,52 @@
         color: var(--muted);
       }
       /* ---------- footer ---------- */
+      /* A quiet shark drifts through the footer; the mascot leads the wordmark.
+         Both stop under prefers-reduced-motion. */
+      .swimmer {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 118px;
+        margin-top: -26px;
+        color: rgba(188, 215, 205, 0.14);
+        pointer-events: none;
+        z-index: 0;
+        animation: swim 34s linear infinite;
+      }
+      @keyframes swim {
+        from {
+          transform: translateX(-140px);
+        }
+        to {
+          transform: translateX(calc(100vw + 60px));
+        }
+      }
+      .foot-mascot {
+        width: 26px;
+        height: 26px;
+        display: block;
+        animation: bob 5s ease-in-out infinite;
+      }
+      @keyframes bob {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-3deg);
+        }
+        50% {
+          transform: translateY(-4px) rotate(3deg);
+        }
+      }
       footer {
         background: #063050;
         color: #cfe4dd;
         padding: 18px 0 20px;
+        position: relative;
+        overflow: hidden;
       }
       .foot-top {
+        position: relative;
+        z-index: 1;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -758,6 +798,9 @@
         margin-bottom: 0;
       }
       .foot-brand {
+        display: flex;
+        align-items: center;
+        gap: 9px;
         flex: 1 1 0;
         font-family: var(--display);
         font-size: 1rem;
@@ -854,6 +897,10 @@
         }
       }
       @media (prefers-reduced-motion: reduce) {
+        .swimmer,
+        .foot-mascot {
+          animation: none;
+        }
         .hero-copy,
         .phone,
         .chip-privacy,
@@ -1318,9 +1365,22 @@
     </main>
 
     <footer>
+      <svg class="swimmer" viewBox="0 0 200 90" aria-hidden="true">
+        <g fill="currentColor">
+          <path
+            d="M48 46 C72 25 122 21 158 31 C176 36 188 42 197 46 C188 50 176 56 158 61 C122 71 72 67 48 46 Z"
+          />
+          <path d="M56 42 L12 9 L34 45 L22 70 L56 52 Z" />
+          <path d="M136 25 L112 3 L100 29 Z" />
+          <path d="M150 55 L110 80 L128 60 Z" />
+        </g>
+      </svg>
       <div class="wrap">
         <div class="foot-top">
-          <div class="foot-brand">Stay humble. <span>Keep building.</span> 🦈</div>
+          <div class="foot-brand">
+            <img class="foot-mascot" src="logo.png" alt="" />
+            Stay humble. <span>Keep building.</span>
+          </div>
           <div class="foot-links">
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Use</a>
