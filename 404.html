@@ -85,6 +85,7 @@
         width: 48px;
         height: 48px;
         display: block;
+        animation: bob 5s ease-in-out infinite;
       }
       main {
         flex: 1;
@@ -251,16 +252,6 @@
       .help-note a {
         color: var(--emerald);
       }
-      .foot-mascot {
-        width: 26px;
-        height: 26px;
-        /* inline-block, not a flex item: making .foot-brand a flex container
-           put its gap between "Stay humble." and "Keep building." too. */
-        display: inline-block;
-        vertical-align: -7px;
-        margin-right: 9px;
-        animation: bob 5s ease-in-out infinite;
-      }
       @keyframes bob {
         0%,
         100% {
@@ -308,7 +299,7 @@
       @media (prefers-reduced-motion: reduce) {
         .lost,
         .scene img,
-        .foot-mascot {
+        .wordmark img {
           animation: none;
         }
         .halo,
@@ -355,10 +346,7 @@
     <footer>
       <div class="wrap">
         <div class="foot-top">
-          <div class="foot-brand">
-            <img class="foot-mascot" src="logo.png" alt="" />
-            Stay humble. <span>Keep building.</span>
-          </div>
+          <div class="foot-brand">Stay humble. <span>Keep building.</span></div>
           <div class="foot-links">
             <a href="/privacy.html">Privacy Policy</a>
             <a href="/terms.html">Terms of Use</a>
