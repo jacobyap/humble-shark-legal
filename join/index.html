@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join a shared book — Humble Shark</title>
+    <meta
+      name="description"
+      content="You've been invited to share an asset book on Humble Shark. See the same assets in one place — without sharing logins."
+    />
+    <!-- Invite codes are bearer tokens and ride in the URL fragment. Keep this
+         page out of search results so a shared screenshot or a crawler can
+         never surface one. -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property="og:title" content="You've been invited — Humble Shark" />
+    <meta
+      property="og:description"
+      content="Track what you own, together. See the same assets in one place — without sharing logins or screenshots."
+    />
+    <meta property="og:image" content="https://humbleshark.app/logo.png" />
+    <link rel="icon" href="../favicon-32x32.png" sizes="32x32" />
+
+    <style>
+      @font-face {
+        font-family: 'Outfit';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url('../fonts/outfit-latin-500-normal.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Outfit';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('../fonts/outfit-latin-700-normal.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Outfit';
+        font-style: normal;
+        font-weight: 800;
+        font-display: swap;
+        src: url('../fonts/outfit-latin-800-normal.woff2') format('woff2');
+      }
+
+      /* Tokens copied from index.html so the two pages are one site. */
+      :root {
+        --mint: #d9f1e5;
+        --mint-deep: #bfe4d2;
+        --paper: #fcfefd;
+        --ink: #032748;
+        --ink-2: #3f6079;
+        --muted: #6b8ba3;
+        --emerald: #059669;
+        --emerald-bright: #10b981;
+        --display: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 20px;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--display);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 420px;
+        text-align: center;
+      }
+
+      .mark {
+        font-weight: 800;
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        color: var(--emerald);
+        margin-bottom: 40px;
+      }
+
+      .kicker {
+        font-weight: 700;
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+        color: var(--muted);
+        margin-bottom: 14px;
+      }
+
+      h1 {
+        font-weight: 800;
+        font-size: clamp(2rem, 9vw, 2.6rem);
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        margin: 0 0 20px;
+        text-wrap: balance;
+      }
+
+      p.lede {
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--ink-2);
+        margin: 0 auto 32px;
+        max-width: 34ch;
+      }
+
+      .btn {
+        display: block;
+        width: 100%;
+        border: 0;
+        cursor: pointer;
+        font-family: var(--display);
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 16px;
+        border-radius: 999px;
+        background: var(--emerald);
+        color: #fff;
+        text-decoration: none;
+        transition:
+          background-color 0.2s ease,
+          transform 0.2s ease;
+      }
+      .btn:hover {
+        background: var(--emerald-bright);
+      }
+      .btn:active {
+        transform: translateY(1px);
+      }
+      .btn:focus-visible {
+        outline: 3px solid var(--ink);
+        outline-offset: 3px;
+      }
+
+      .alt {
+        display: inline-block;
+        margin-top: 18px;
+        font-weight: 500;
+        font-size: 0.92rem;
+        color: var(--emerald);
+      }
+      .alt:focus-visible {
+        outline: 3px solid var(--ink);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+
+      .foot {
+        margin-top: 44px;
+        padding-top: 20px;
+        border-top: 1px solid var(--mint-deep);
+        font-weight: 500;
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      /* Shown only when the link carries no code — see the script below. */
+      .broken {
+        display: none;
+      }
+      body.no-code .invite {
+        display: none;
+      }
+      body.no-code .broken {
+        display: block;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .btn {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="card">
+      <div class="mark">HUMBLE SHARK</div>
+
+      <div class="invite">
+        <div class="kicker">YOU'VE BEEN INVITED</div>
+        <h1>Track what you own,<br />together</h1>
+        <p class="lede">
+          <span id="who">Someone you know</span> has invited you to share an asset book. See the
+          same assets in one place — without sharing logins or screenshots.
+        </p>
+
+        <a class="btn" id="open" href="#">Open in Humble Shark</a>
+        <a
+          class="alt"
+          id="store"
+          href="https://apps.apple.com/my/app/humble-shark-asset-tracker/id6791254180"
+        >
+          Don't have the app? Get it free
+        </a>
+      </div>
+
+      <div class="broken">
+        <div class="kicker">INVITE LINK INCOMPLETE</div>
+        <h1>This link is<br />missing its code</h1>
+        <p class="lede">
+          Ask whoever invited you to send the link again — the part after the # carries the
+          invitation and it did not survive the copy.
+        </p>
+        <a class="alt" href="https://humbleshark.app">Go to humbleshark.app</a>
+      </div>
+
+      <div class="foot">Private by design. No bank linking.</div>
+    </main>
+
+    <script>
+      (function () {
+        // Everything lives in the fragment so it is never sent to GitHub Pages
+        // — an invite code is a bearer token and a request line would log it.
+        var rawHash = (location.hash || '').replace(/^#/, '');
+
+        // Decode each VALUE, never the whole fragment: a name containing an
+        // encoded "&" (Jacob %26 Sons) would otherwise decode into a real
+        // separator and split into extra params, truncating the name. Malformed
+        // input falls back to the raw text rather than throwing.
+        function dec(value) {
+          try {
+            return decodeURIComponent(value);
+          } catch (e) {
+            return value;
+          }
+        }
+
+        // Two shapes: `join=<code>&from=<name>` (what the app writes now) and a
+        // bare `<code>` (older links, and anything hand-shortened).
+        var code = '';
+        var sender = '';
+        if (rawHash.indexOf('join=') === 0) {
+          var parts = rawHash.split('&');
+          for (var i = 0; i < parts.length; i++) {
+            var eq = parts[i].indexOf('=');
+            if (eq < 0) continue;
+            var key = parts[i].slice(0, eq);
+            var val = parts[i].slice(eq + 1);
+            if (key === 'join') code = dec(val);
+            if (key === 'from') sender = dec(val);
+          }
+        } else {
+          code = dec(rawHash);
+        }
+
+        if (!code) {
+          document.body.className = 'no-code';
+          return;
+        }
+
+        // The sender name arrives from the link, so it is attacker-controllable
+        // if an invite is forwarded and edited. Two guards, both required:
+        // textContent (never innerHTML) so markup can never execute, and a
+        // length cap so a pasted essay cannot wreck the layout. Anything
+        // unusable falls back to the neutral phrasing already in the markup.
+        if (sender) {
+          var name = sender.replace(/\s+/g, ' ').trim().slice(0, 40);
+          if (name) document.getElementById('who').textContent = name;
+        }
+
+        var deepLink = 'humble-shark://?join=' + encodeURIComponent(code);
+        document.getElementById('open').setAttribute('href', deepLink);
+
+        // Deliberately NOT auto-redirecting. Firing a custom scheme on load
+        // shows "Safari cannot open the page" to everyone without the app —
+        // the exact people this page exists to catch. A tap is one extra step
+        // and never produces an error banner.
+
+        // Same label on both platforms; only the destination differs, so an
+        // Android visitor is never sent to the App Store.
+        //
+        // NOTE: the Play listing is closed-testing only until production access
+        // is granted — opted-in testers reach it, everyone else sees "item not
+        // found". It resolves for everyone the moment Android goes public.
+        if (/android/i.test(navigator.userAgent)) {
+          document
+            .getElementById('store')
+            .setAttribute(
+              'href',
+              'https://play.google.com/store/apps/details?id=com.humbleshark.app',
+            );
+        }
+      })();
+    </script>
+  </body>
+</html>
