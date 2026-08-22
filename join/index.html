@@ -190,8 +190,9 @@
         <div class="kicker">YOU'VE BEEN INVITED</div>
         <h1>Track what you own,<br />together</h1>
         <p class="lede">
-          <span id="who">Someone you know</span> has invited you to share an asset book. See the
-          same assets in one place — without sharing logins or screenshots.
+          <span id="who">Someone you know</span> has invited you to
+          <span id="what">share an asset book</span>. See the same assets in one place — without
+          sharing logins or screenshots.
         </p>
 
         <a class="btn" id="open" href="#">Open in Humble Shark</a>
@@ -258,15 +259,61 @@
           return;
         }
 
-        // The sender name arrives from the link, so it is attacker-controllable
-        // if an invite is forwarded and edited. Two guards, both required:
-        // textContent (never innerHTML) so markup can never execute, and a
-        // length cap so a pasted essay cannot wreck the layout. Anything
-        // unusable falls back to the neutral phrasing already in the markup.
-        if (sender) {
-          var name = sender.replace(/\s+/g, ' ').trim().slice(0, 40);
-          if (name) document.getElementById('who').textContent = name;
+        // Render whatever the link claims FIRST, so the page reads sensibly
+        // before the network answers (and still reads sensibly if it never
+        // does). This value is attacker-controllable — anyone forwarding the
+        // link can edit it — so it is set with textContent, never innerHTML,
+        // and capped so a pasted essay cannot wreck the layout. It is a
+        // placeholder, and the server overwrites it below.
+        function show(id, text) {
+          var el = document.getElementById(id);
+          var clean = String(text || '')
+            .replace(/\s+/g, ' ')
+            .trim()
+            .slice(0, 40);
+          if (clean) el.textContent = clean;
         }
+
+        show('who', sender);
+
+        // Then ask the server who actually sent this. `preview_book_invite` is
+        // granted to anon (migration 0023) precisely so this page can replace
+        // an unverifiable claim with the invite's real facts — inviter, book
+        // and role. The key below is Supabase's *publishable* key: public by
+        // design, and the row-level policies, not its secrecy, are the
+        // boundary. On any failure the placeholder simply stands.
+        var SUPABASE_URL = 'https://fmurnihrhlqddvwswssb.supabase.co';
+        var SUPABASE_KEY = 'sb_publishable_tfYbnci0iFQCI6y0FYedGA_YP6Z520f';
+
+        fetch(SUPABASE_URL + '/rest/v1/rpc/preview_book_invite', {
+          method: 'POST',
+          headers: {
+            apikey: SUPABASE_KEY,
+            Authorization: 'Bearer ' + SUPABASE_KEY,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ p_code: code }),
+        })
+          .then(function (res) {
+            return res.ok ? res.json() : null;
+          })
+          .then(function (invite) {
+            if (!invite || !invite.bookName) return;
+
+            show('who', invite.inviterName);
+            show('what', 'share ' + invite.bookName);
+
+            // Say plainly when a code is already spent or out of date, rather
+            // than offering a button that will fail inside the app.
+            if (invite.valid === false) {
+              document.getElementById('open').style.display = 'none';
+              document.getElementById('what').textContent =
+                'share ' + invite.bookName + ', but that invite has already been ' + invite.reason;
+            }
+          })
+          .catch(function () {
+            /* Offline or blocked — the placeholder copy already reads fine. */
+          });
 
         var deepLink = 'humble-shark://?join=' + encodeURIComponent(code);
         document.getElementById('open').setAttribute('href', deepLink);
