@@ -326,9 +326,10 @@
         // Same label on both platforms; only the destination differs, so an
         // Android visitor is never sent to the App Store.
         //
-        // NOTE: the Play listing is closed-testing only until production access
-        // is granted — opted-in testers reach it, everyone else sees "item not
-        // found". It resolves for everyone the moment Android goes public.
+        // The Play listing went public 2026-08-24 (vc10 / 1.0.5), so this
+        // resolves for everyone. It previously did not: while the app was
+        // closed-testing only, opted-in testers reached the listing and
+        // everyone else saw "item not found".
         if (/android/i.test(navigator.userAgent)) {
           document
             .getElementById('store')
