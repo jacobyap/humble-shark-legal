@@ -79,6 +79,29 @@
         text-align: center;
       }
 
+      /* The icon a recipient will see again on the store listing and their home
+         screen. This page's job is to convince a stranger who got a link in a
+         chat that it is real, and matching artwork does that faster than type. */
+      .brandmark {
+        display: block;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 14px;
+      }
+
+      /* Role sits between the lede and the button: it is the last thing read
+         before deciding, and it is what tells the reader whether they are being
+         asked to look or to help. */
+      .role {
+        margin: -6px 0 26px;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+      .role b {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
       .mark {
         font-weight: 800;
         font-size: 0.82rem;
@@ -184,6 +207,7 @@
 
   <body>
     <main class="card">
+      <img class="brandmark" src="../logo.png" alt="" width="60" height="60" />
       <div class="mark">HUMBLE SHARK</div>
 
       <div class="invite">
@@ -191,9 +215,12 @@
         <h1>Track what you own,<br />together</h1>
         <p class="lede">
           <span id="who">Someone you know</span> has invited you to
-          <span id="what">share an asset book</span>. See the same assets in one place — without
-          sharing logins or screenshots.
+          <span id="what">share an asset book</span>.
+          <span id="value">See the same assets in one place</span> — without sharing logins or
+          screenshots.
         </p>
+
+        <p class="role" id="role" hidden>You'll join as <b id="roleName">a viewer</b>.</p>
 
         <a class="btn" id="open" href="#">Open in Humble Shark</a>
         <a
@@ -303,10 +330,28 @@
             show('who', invite.inviterName);
             show('what', 'share ' + invite.bookName);
 
+            // Role wording mirrors packages/core/src/logic/inviteMessage.ts so the
+            // chat message and this page cannot drift: "an editor" / "a viewer",
+            // and an editor is told they can MANAGE, never just look. Anything
+            // other than 'editor' — including a missing role — falls to viewer,
+            // because over-promising here is the failure that costs trust:
+            // promising management and delivering read-only is a broken promise
+            // on the recipient's first screen.
+            var isEditor = invite.role === 'editor';
+
+            // Our own copy, not the caller's, so it is set directly rather than
+            // through show() — that helper exists to cap untrusted strings.
+            document.getElementById('roleName').textContent = isEditor ? 'an editor' : 'a viewer';
+            document.getElementById('value').textContent = isEditor
+              ? 'See and manage the same assets in one place'
+              : 'See the same assets in one place';
+            document.getElementById('role').hidden = false;
+
             // Say plainly when a code is already spent or out of date, rather
             // than offering a button that will fail inside the app.
             if (invite.valid === false) {
               document.getElementById('open').style.display = 'none';
+              document.getElementById('role').hidden = true;
               document.getElementById('what').textContent =
                 'share ' + invite.bookName + ', but that invite has already been ' + invite.reason;
             }
