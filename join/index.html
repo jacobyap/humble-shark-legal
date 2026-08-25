@@ -323,14 +323,28 @@
         // the exact people this page exists to catch. A tap is one extra step
         // and never produces an error banner.
 
-        // Same label on both platforms; only the destination differs, so an
-        // Android visitor is never sent to the App Store.
+        // Same label on both platforms; only the destination differs.
         //
-        // The Play listing went public 2026-08-24 (vc10 / 1.0.5), so this
-        // resolves for everyone. It previously did not: while the app was
-        // closed-testing only, opted-in testers reached the listing and
-        // everyone else saw "item not found".
-        if (/android/i.test(navigator.userAgent)) {
+        // Detect iOS and let EVERYTHING ELSE fall through to Play, rather than
+        // detecting Android. Chrome for Android's "Request desktop site"
+        // rewrites the UA to a desktop string, so an /android/i test misses
+        // those visitors and sent them to the App Store. Testing for iOS is not
+        // subject to that: no Android browser claims to be an iPhone.
+        //
+        // The cost is that a real Mac/Windows desktop now gets Play. That is
+        // the better half of the trade — neither store can install to a laptop,
+        // and Play's web listing can at least push to a linked Android device.
+        //
+        // iPadOS 13+ reports a Macintosh UA, so the touch check is REQUIRED
+        // here, not a nicety: without it an iPad reads as desktop and would be
+        // sent to Play. maxTouchPoints is what separates an iPad from a Mac.
+        var ua = navigator.userAgent;
+        var isIOS =
+          /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+
+        // The App Store stays the markup default, so a visitor whose JS never
+        // runs still lands on a real listing rather than nowhere.
+        if (!isIOS) {
           document
             .getElementById('store')
             .setAttribute(
