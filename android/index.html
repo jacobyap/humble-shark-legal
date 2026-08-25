@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Play — Humble Shark</title>
+    <meta name="description" content="Humble Shark for Android — free on Google Play." />
+    <!-- Redirect stub: humbleshark.app/android → the Play listing. It exists
+         so surfaces that display their URLs (Instagram's bio link page) show a
+         short brand link while the UTM tags ride on the destination,
+         invisibly. Deliberately noindex and absent from sitemap.xml, same as
+         404.html — the store page is the canonical destination. -->
+    <meta name="robots" content="noindex" />
+    <meta property="og:title" content="Humble Shark for Android" />
+    <meta property="og:description" content="Every asset. One quiet place. Free on Google Play." />
+    <meta property="og:image" content="https://humbleshark.app/logo.png" />
+    <link rel="icon" href="../favicon-32x32.png" sizes="32x32" />
+
+    <!-- No-JS fallback goes to the untagged listing on purpose: one URL to
+         maintain here, and scrapers/previews read the og tags, not this. -->
+    <noscript>
+      <meta
+        http-equiv="refresh"
+        content="0; url=https://play.google.com/store/apps/details?id=com.humbleshark.app"
+      />
+    </noscript>
+
+    <style>
+      @font-face {
+        font-family: 'Outfit';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('../fonts/outfit-latin-700-normal.woff2') format('woff2');
+      }
+      :root {
+        --paper: #fcfefd;
+        --ink: #032748;
+        --muted: #6b8ba3;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+        text-align: center;
+        padding: 24px;
+      }
+      img {
+        width: 64px;
+        height: 64px;
+      }
+      p {
+        margin: 0;
+        font-weight: 700;
+        font-size: 18px;
+      }
+      a {
+        color: var(--muted);
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="../logo.png" alt="Humble Shark" />
+    <p>Opening Google Play…</p>
+    <a href="https://play.google.com/store/apps/details?id=com.humbleshark.app"
+      >If nothing happens, continue to Google Play.</a
+    >
+    <script>
+      // UTM defaults name the bio funnel; any query on this page overrides
+      // them, so one stub serves every channel:
+      // humbleshark.app/android?utm_medium=poster etc. The listing id is the
+      // app's identity, not a parameter — it cannot be overridden.
+      var p = new URLSearchParams({
+        utm_source: 'instagram',
+        utm_medium: 'bio',
+      });
+      new URLSearchParams(location.search).forEach(function (v, k) {
+        if (k !== 'id') p.set(k, v);
+      });
+      location.replace('https://play.google.com/store/apps/details?id=com.humbleshark.app&' + p);
+    </script>
+  </body>
+</html>
