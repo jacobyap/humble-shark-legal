@@ -75,11 +75,10 @@
     >
     <script>
       // ct names the campaign; pt is the provider token from App Store
-      // Connect → App Analytics (campaign link generator). Empty PT still
-      // redirects fine — installs just don't attribute until it's filled.
+      // Connect → App Analytics (campaign link generator, filled 2026-08-25).
       // Any query on this page overrides the defaults, so one stub serves
       // every channel: humbleshark.app/ios?ct=poster etc.
-      var PT = '';
+      var PT = '129170021';
       var p = new URLSearchParams({ ct: 'ig-bio' });
       if (PT) p.set('pt', PT);
       new URLSearchParams(location.search).forEach(function (v, k) {
