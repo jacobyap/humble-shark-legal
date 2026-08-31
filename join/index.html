@@ -186,6 +186,63 @@
         color: var(--muted);
       }
 
+      /* The new-user path. Installing from a store loses the deep link's code
+         (custom schemes have no deferred deep linking), so the page hands the
+         recipient the code itself and names the way back in. Hidden until the
+         script has a code, and hidden again if the server says the invite is
+         already spent. */
+      .steps {
+        margin-top: 34px;
+        padding: 20px 20px 22px;
+        background: var(--mint);
+        border-radius: 16px;
+        text-align: left;
+      }
+      .steps .kicker {
+        margin-bottom: 10px;
+      }
+      .steps p {
+        margin: 0 0 14px;
+        font-weight: 500;
+        font-size: 0.92rem;
+        line-height: 1.55;
+        color: var(--ink-2);
+      }
+      .steps p b {
+        color: var(--ink);
+        font-weight: 700;
+      }
+      .code {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        border: 0;
+        cursor: pointer;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 1.02rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        padding: 14px 16px;
+        border-radius: 12px;
+        background: var(--paper);
+        color: var(--ink);
+        overflow-wrap: anywhere;
+        text-align: left;
+      }
+      .code:focus-visible {
+        outline: 3px solid var(--ink);
+        outline-offset: 3px;
+      }
+      .code-hint {
+        font-family: var(--display);
+        font-weight: 700;
+        font-size: 0.78rem;
+        color: var(--emerald);
+        white-space: nowrap;
+      }
+
       /* Shown only when the link carries no code — see the script below. */
       .broken {
         display: none;
@@ -230,6 +287,19 @@
         >
           Don't have the app? Get it free
         </a>
+
+        <div class="steps" id="steps" hidden>
+          <div class="kicker">NEW TO HUMBLE SHARK?</div>
+          <p>
+            Get the app with the link above, then come back here and tap
+            <b>Open in Humble Shark</b>.
+          </p>
+          <p>Or, in the app, tap your book name and choose <b>Join with a code</b>, then enter:</p>
+          <button class="code" id="codeBtn" type="button" aria-label="Copy invite code">
+            <span id="codeText"></span>
+            <span class="code-hint" id="codeHint">Tap to copy</span>
+          </button>
+        </div>
       </div>
 
       <div class="broken">
@@ -352,6 +422,7 @@
             if (invite.valid === false) {
               document.getElementById('open').style.display = 'none';
               document.getElementById('role').hidden = true;
+              document.getElementById('steps').hidden = true;
               document.getElementById('what').textContent =
                 'share ' + invite.bookName + ', but that invite has already been ' + invite.reason;
             }
@@ -362,6 +433,38 @@
 
         var deepLink = 'humble-shark://?join=' + encodeURIComponent(code);
         document.getElementById('open').setAttribute('href', deepLink);
+
+        // The new-user wall: someone who installs from the store opens the app
+        // with no memory of this link, so the invitation dies unless they can
+        // carry the code by hand. Show it, and make it one tap to copy. The
+        // code is already in this visitor's URL, so displaying it adds no
+        // exposure. Hidden again above if the server says it is spent.
+        document.getElementById('codeText').textContent = code;
+        document.getElementById('steps').hidden = false;
+        var hintTimer = null;
+        document.getElementById('codeBtn').addEventListener('click', function () {
+          function done(ok) {
+            document.getElementById('codeHint').textContent = ok
+              ? 'Copied'
+              : 'Could not copy — type it in the app';
+            clearTimeout(hintTimer);
+            hintTimer = setTimeout(function () {
+              document.getElementById('codeHint').textContent = 'Tap to copy';
+            }, 2000);
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(code).then(
+              function () {
+                done(true);
+              },
+              function () {
+                done(false);
+              },
+            );
+          } else {
+            done(false);
+          }
+        });
 
         // Deliberately NOT auto-redirecting. Firing a custom scheme on load
         // shows "Safari cannot open the page" to everyone without the app —
